@@ -22,8 +22,8 @@ modules = ["core.py",
            "windows.py",
            "data.py"]
 
-doc_url = "https://fastai.github.io/fmi/"
+doc_url = "https://asvcode.github.io/fmi/"
 
-git_url = "https://github.com/fastai/fmi/tree/master/"
+git_url = "https://github.com/asvcode/fmi/tree/master/"
 
 def custom_doc_links(name): return None
