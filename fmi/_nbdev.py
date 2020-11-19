@@ -9,9 +9,18 @@ index = {"instance_sort": "00_core.ipynb",
          "mask_and_save": "00_core.ipynb",
          "DcmDataset.updated_dict": "00_core.ipynb",
          "pd.DataFrame.from_dicoms2": "00_core.ipynb",
-         "dicom_convert_3channel": "00_core.ipynb"}
+         "dicom_convert_3channel": "00_core.ipynb",
+         "dicom_windows": "01_windows.ipynb",
+         "PILWindow": "01_windows.ipynb",
+         "LungWindow": "01_windows.ipynb",
+         "PEWindow": "01_windows.ipynb",
+         "dicomsplit": "03_data.ipynb",
+         "check_duplicate": "03_data.ipynb",
+         "dicom_splitter": "03_data.ipynb"}
 
-modules = ["core.py"]
+modules = ["core.py",
+           "windows.py",
+           "data.py"]
 
 doc_url = "https://fastai.github.io/fmi/"
 

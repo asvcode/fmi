@@ -1,6 +1,8 @@
 {
   "fmi": {
     "Overview": "/",
-    "module name here": "core.html"
+    "core": "core.html",
+    "windows": "windows.html",
+    "data": "data.html"
   }
 }
