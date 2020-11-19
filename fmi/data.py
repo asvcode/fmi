@@ -32,12 +32,12 @@ def dicomsplit(valid_pct=0.2, seed=None, **kwargs):
 
 # Cell
 def check_duplicate(items, seed=5):
-    trn, val = DicomSplit(valid_pct=0.2, seed=seed)(items)
+    trn, val = dicomsplit(valid_pct=0.2, seed=seed)(items)
     return trn, val
 
 # Cell
 def dicom_splitter(items, valid_pct=0.2):
-    trn, val = DicomSplit(valid_pct=valid_pct)(items)
+    trn, val = dicomsplit(valid_pct=valid_pct)(items)
     valid_idx = val
     def _inner(o):
         train_idx = np.setdiff1d(np.array(range_of(o)), np.array(valid_idx))
