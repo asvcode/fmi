@@ -2,7 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"instance_sort": "03_preprocessing.ipynb",
+index = {"instance_sort": "00_core.ipynb",
          "instance_dcmread": "00_core.ipynb",
          "instance_show": "00_core.ipynb",
          "get_dicom_image": "00_core.ipynb",
@@ -13,15 +13,10 @@ index = {"instance_sort": "03_preprocessing.ipynb",
          "dicom_windows": "01_windows.ipynb",
          "PILWindow": "01_windows.ipynb",
          "LungWindow": "01_windows.ipynb",
-         "PEWindow": "01_windows.ipynb",
-         "dicomsplit": "03_data.ipynb",
-         "check_duplicate": "03_data.ipynb",
-         "dicom_splitter": "03_data.ipynb"}
+         "PEWindow": "01_windows.ipynb"}
 
 modules = ["core.py",
-           "windows.py",
-           "data.py",
-           "preprocessing.py"]
+           "windows.py"]
 
 doc_url = "https://asvcode.github.io/fmi/"
 
