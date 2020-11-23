@@ -1,7 +1,6 @@
 {
   "fmi": {
     "Overview": "/",
-    "core": "core.html",
     "explore": "explore.html",
     "pre_processing": "preprocessing.html",
     "pipeline": "pipeline.html",
