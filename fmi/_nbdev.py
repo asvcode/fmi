@@ -2,7 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"instance_sort": "00_core.ipynb",
+index = {"instance_sort": "00a_preprocessing.ipynb",
          "instance_dcmread": "00_core.ipynb",
          "instance_show": "00_core.ipynb",
          "get_dicom_image": "00_core.ipynb",
@@ -19,6 +19,7 @@ index = {"instance_sort": "00_core.ipynb",
          "dicom_splitter": "03_data.ipynb"}
 
 modules = ["core.py",
+           "preprocessing.py",
            "windows.py",
            "data.py"]
 

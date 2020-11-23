@@ -13,6 +13,9 @@ entries:
       title: core
       url: core.html
     - output: web,pdf
+      title: pre_processing
+      url: preprocessing.html
+    - output: web,pdf
       title: windows
       url: windows.html
     - output: web,pdf
