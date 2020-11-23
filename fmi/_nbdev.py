@@ -2,21 +2,26 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"instance_sort": "00_core.ipynb",
-         "instance_dcmread": "00_core.ipynb",
-         "instance_show": "00_core.ipynb",
-         "get_dicom_image": "00_core.ipynb",
-         "mask_and_save": "00_core.ipynb",
-         "DcmDataset.updated_dict": "00_core.ipynb",
-         "pd.DataFrame.from_dicoms2": "00_core.ipynb",
-         "dicom_convert_3channel": "00_core.ipynb",
-         "dicom_windows": "01_windows.ipynb",
-         "PILWindow": "01_windows.ipynb",
-         "LungWindow": "01_windows.ipynb",
-         "PEWindow": "01_windows.ipynb"}
+index = {"instance_sort": "02_explore.ipynb",
+         "instance_dcmread": "02_explore.ipynb",
+         "instance_show": "02_explore.ipynb",
+         "get_dicom_image": "02_explore.ipynb",
+         "mask_and_save": "03_preprocessing.ipynb",
+         "DcmDataset.updated_dict": "03_preprocessing.ipynb",
+         "pd.DataFrame.from_dicoms2": "03_preprocessing.ipynb",
+         "dicom_convert_3channel": "03_preprocessing.ipynb",
+         "dicomsplit": "03_preprocessing.ipynb",
+         "check_duplicate": "03_preprocessing.ipynb",
+         "dicom_splitter": "03_preprocessing.ipynb",
+         "dicom_windows": "04_pipeline.ipynb",
+         "PILWindow": "04_pipeline.ipynb",
+         "LungWindow": "04_pipeline.ipynb",
+         "PEWindow": "04_pipeline.ipynb"}
 
 modules = ["core.py",
-           "windows.py"]
+           "explore.py",
+           "preprocessing.py",
+           "pipeline.py"]
 
 doc_url = "https://asvcode.github.io/fmi/"
 
