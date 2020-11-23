@@ -25,6 +25,15 @@ entries:
       title: pre_processing
       url: preprocessing.html
     - output: web,pdf
+      title: pipeline
+      url: pipeline.html
+    - output: web,pdf
+      title: train
+      url: train.html
+    - output: web,pdf
+      title: examine
+      url: examine.html
+    - output: web,pdf
       title: tutorials
       url: tutorial.html
     output: web
