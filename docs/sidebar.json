@@ -2,9 +2,10 @@
   "fmi": {
     "Overview": "/",
     "core": "core.html",
-    "pre_processing": "preprocessing.html",
     "windows": "windows.html",
+    "explore": "explore.html",
     "data": "data.html",
+    "pre_processing": "preprocessing.html",
     "tutorials": "tutorial.html"
   }
 }
