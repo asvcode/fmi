@@ -36,6 +36,24 @@ nb_path: "nbs\00_core.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">colab_depend</span><span class="p">():</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Instance-Sort">Instance Sort<a class="anchor-link" href="#Instance-Sort"> </a></h3>
@@ -60,7 +78,7 @@ nb_path: "nbs\00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="instance_sort" class="doc_header"><code>instance_sort</code><a href="https://github.com/fastai/fmi/tree/master/fmi/core.py#L12" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_sort</code>(<strong><code>folder</code></strong>:<code>L'&gt;)</code>)</p>
+<h4 id="instance_sort" class="doc_header"><code>instance_sort</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/core.py#L12" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_sort</code>(<strong><code>folder</code></strong>:<code>L'&gt;)</code>)</p>
 </blockquote>
 <p>sort files by instance number</p>
 
@@ -99,7 +117,7 @@ nb_path: "nbs\00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="instance_dcmread" class="doc_header"><code>instance_dcmread</code><a href="https://github.com/fastai/fmi/tree/master/fmi/core.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_dcmread</code>(<strong><code>folder</code></strong>:<code>L</code>)</p>
+<h4 id="instance_dcmread" class="doc_header"><code>instance_dcmread</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/core.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_dcmread</code>(<strong><code>folder</code></strong>:<code>L</code>)</p>
 </blockquote>
 <p>instance dcmread</p>
 
@@ -131,7 +149,7 @@ nb_path: "nbs\00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="instance_show" class="doc_header"><code>instance_show</code><a href="https://github.com/fastai/fmi/tree/master/fmi/core.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_show</code>(<strong><code>folder</code></strong>:<code>L</code>, <strong><code>nrows</code></strong>=<em><code>1</code></em>)</p>
+<h4 id="instance_show" class="doc_header"><code>instance_show</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/core.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_show</code>(<strong><code>folder</code></strong>:<code>L</code>, <strong><code>nrows</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>show sorted files</p>
 
@@ -169,7 +187,7 @@ nb_path: "nbs\00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_dicom_image" class="doc_header"><code>get_dicom_image</code><a href="https://github.com/fastai/fmi/tree/master/fmi/core.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dicom_image</code>(<strong><code>df</code></strong>, <strong><code>key</code></strong>, <strong><code>nrows</code></strong>=<em><code>3</code></em>, <strong><code>source</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="get_dicom_image" class="doc_header"><code>get_dicom_image</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/core.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dicom_image</code>(<strong><code>df</code></strong>, <strong><code>key</code></strong>, <strong><code>nrows</code></strong>=<em><code>3</code></em>, <strong><code>source</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 
 </div>
@@ -206,7 +224,7 @@ nb_path: "nbs\00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="mask_and_save" class="doc_header"><code>mask_and_save</code><a href="https://github.com/fastai/fmi/tree/master/fmi/core.py#L50" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mask_and_save</code>(<strong><code>df</code></strong>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>show</code></strong>=<em><code>None</code></em>, <strong><code>window</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>sigma</code></strong>:<code>float</code>=<em><code>0.1</code></em>, <strong><code>thresh</code></strong>:<code>float</code>=<em><code>0.9</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="mask_and_save" class="doc_header"><code>mask_and_save</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/core.py#L50" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mask_and_save</code>(<strong><code>df</code></strong>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>show</code></strong>=<em><code>None</code></em>, <strong><code>window</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>sigma</code></strong>:<code>float</code>=<em><code>0.1</code></em>, <strong><code>thresh</code></strong>:<code>float</code>=<em><code>0.9</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 
 </div>
@@ -243,7 +261,7 @@ nb_path: "nbs\00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Dataset.updated_dict" class="doc_header"><code>Dataset.updated_dict</code><a href="https://github.com/fastai/fmi/tree/master/fmi/core.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.updated_dict</code>(<strong><code>windows</code></strong>=<em><code>[(1500, -600)]</code></em>)</p>
+<h4 id="Dataset.updated_dict" class="doc_header"><code>Dataset.updated_dict</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/core.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.updated_dict</code>(<strong><code>windows</code></strong>=<em><code>[(1500, -600)]</code></em>)</p>
 </blockquote>
 
 </div>
@@ -301,7 +319,7 @@ nb_path: "nbs\00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/fastai/fmi/tree/master/fmi/core.py#L94" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>:<code>str</code>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
+<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/core.py#L94" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>:<code>str</code>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
 </blockquote>
 <p>Split a dicom image into 3 windows with each window per channel and saved as jpg</p>
 
