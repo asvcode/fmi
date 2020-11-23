@@ -4,9 +4,7 @@
 
 ![CI](https://github.com/asvcode/fmi/workflows/CI/badge.svg)
 
-<p align="center">
-  <img width="417" height="757" hspace="20" src="nbs/images/graphic6.PNG">
-</p>
+![](nbs\images\graphic6.PNG)
 
 ## Install
 

@@ -18,8 +18,7 @@ index = {"instance_sort": "02_explore.ipynb",
          "LungWindow": "04_pipeline.ipynb",
          "PEWindow": "04_pipeline.ipynb"}
 
-modules = ["core.py",
-           "explore.py",
+modules = ["explore.py",
            "preprocessing.py",
            "pipeline.py"]
 

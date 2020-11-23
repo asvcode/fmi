@@ -10,9 +10,6 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: core
-      url: core.html
-    - output: web,pdf
       title: explore
       url: explore.html
     - output: web,pdf
