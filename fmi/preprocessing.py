@@ -70,23 +70,43 @@ def dicomsplit(valid_pct=0.2, seed=None, **kwargs):
     "Splits `items` between train/val with `valid_pct`"
     "and checks if identical patient IDs exist in both the train and valid sets"
     def _inner(o, **kwargs):
-        train_list=[]; valid_list=[]
+        train_list = []; valid_list = []
         if seed is not None: torch.manual_seed(seed)
         rand_idx = L(int(i) for i in torch.randperm(len(o)))
         cut = int(valid_pct * len(o))
         trn = rand_idx[cut:]; trn_p = o[rand_idx[cut:]]
         val = rand_idx[:cut]; val_p = o[rand_idx[:cut]]
+        train_patient = []; train_images = []
+        for i, tfile in enumerate(trn_p):
+            file = dcmread(tfile)
+            tpat = file.PatientID
+            train_patient.append(tpat)
+            file_array = dcmread(tfile).pixel_array
+            train_images.append(file_array)
+        val_patient = []; val_images = []
+        for i, vfile in enumerate(val_p):
+            file2 = dcmread(vfile)
+            vpat = file2.PatientID
+            val_patient.append(vpat)
+            val_array = dcmread(vfile).pixel_array
+            val_images.append(val_array)
 
-        for i, im in enumerate(trn_p):
-            trn = im.dcmread()
-            patient_ID = trn.PatientID
-            train_list.append(patient_ID)
-        for j, jm in enumerate(val_p):
-            val = jm.dcmread()
-            vpatient_ID = val.PatientID
-            valid_list.append(vpatient_ID)
-        print(f'Duplicate: {set(train_list) & set(valid_list)}')
-        return rand_idx[cut:], rand_idx[:cut]
+        print(rand_idx)
+        print(f'Train: {trn}, {train_patient}')
+        show_images(train_images)
+        print(f'Val: {val}, {val_patient}')
+        show_images(val_images)
+        is_duplicate = set(train_patient) & set(val_patient)
+        print(f'Duplicate: {set(train_patient) & set(val_patient)}')
+        new_list = []
+        if bool(is_duplicate) is not False:
+            print('duplicate exists')
+            new_list = [elem for elem in train_patient if elem not in val_patient ]
+            print(f'New List: {new_list}')
+        else:
+            print('duplicate does NOT exist')
+            new_list = trn
+        return new_list, val
     return _inner
 
 # Cell
@@ -95,7 +115,7 @@ def check_duplicate(items, seed=5):
     return trn, val
 
 # Cell
-def dicom_splitter(items, valid_pct=0.2):
+def dicom_splitter(items, valid_pct=0.2, seed=77):
     trn, val = dicomsplit(valid_pct=valid_pct)(items)
     valid_idx = val
     def _inner(o):
