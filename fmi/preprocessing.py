@@ -34,6 +34,7 @@ def updated_dict(self:DcmDataset, windows=[dicom_windows.lungs]):
     vals = [self[o] for o in self.keys() if o != pxdata]
     its = [(v.keyword, v.value) for v in vals]
     res = dict(its)
+    res['fname'] = self.filename
 
     stats = 'min', 'max', 'mean', 'std'
     pxs = self.pixel_array
