@@ -94,9 +94,9 @@ def dicomsplit(valid_pct=0.2, seed=None, **kwargs):
 
         print(rand_idx)
         print(f'Train: {trn}, {train_patient}')
-        show_images(train_images)
+        show_images(train_images[:20])
         print(f'Val: {val}, {val_patient}')
-        show_images(val_images)
+        show_images(val_images[:20])
         is_duplicate = set(train_patient) & set(val_patient)
         print(f'Duplicate: {set(train_patient) & set(val_patient)}')
         new_list = []
