@@ -10,4 +10,4 @@
 
 `pip install fmi`
 
-## How to use
+## Tutorials
