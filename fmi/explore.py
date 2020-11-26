@@ -6,10 +6,11 @@ __all__ = ['instance_sort', 'instance_dcmread', 'instance_show', 'get_dicom_imag
 from fastai.vision.all import *
 from fastai.medical.imaging import *
 from torchvision.utils import save_image
+matplotlib.rcParams['image.cmap'] = 'bone'
 
 # Cell
 def instance_sort(folder:(Path, L)):
-    "sort files by instance number"
+    "Helper to sort files by instance number"
     if isinstance(folder, Path): folder = get_dicom_files(folder)
     if isinstance(folder, L): folder = folder
     sorted_files = []
@@ -26,15 +27,16 @@ def instance_dcmread(folder:(L)):
 
 # Cell
 def instance_show(folder: (L), nrows=1):
-    "show sorted files"
-    f_list = []
+    "Helper to display sorted files by instance number"
+    f_list = []; t_list = []
     for file in instance_sort(folder):
         f = TensorDicom(dcmread(file[1]).pixel_array)
-        f_list.append(f)
-    return show_images(f_list, nrows=nrows)
+        f_list.append(f); t_list.append(file[0])
+    return show_images(f_list, titles=t_list, nrows=nrows)
 
 # Cell
 def get_dicom_image(df, key, nrows=3, source=None):
+    "Helper to view images by key"
     imgs=[]
     title=[]
     for i in df.index:
