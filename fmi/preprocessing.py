@@ -7,8 +7,11 @@ from fastai.vision.all import *
 from fastai.medical.imaging import *
 from torchvision.utils import save_image
 
+from .pipeline import *
+
 # Cell
 def mask_and_save(df, source=None, show=None, window=dicom_windows.lungs, sigma:float=0.1, thresh:float=0.9, save=False, save_path=None):
+    "Helper to create masks based on dicom window with the option to save the updated image"
     image_list = []
     for i in df.index:
         file_path = f"{source}/{df.iloc[i]['PatientID']}/{df.iloc[i]['InstanceNumber']}.dcm"
@@ -55,7 +58,7 @@ pd.DataFrame.from_dicoms2 = classmethod(_from_dicoms2)
 # Cell
 def dicom_convert_3channel(fn:(Path,str), save_dir:(str), win1=dicom_windows.lungs, \
                            win2=dicom_windows.liver, win3=dicom_windows.brain):
-    "Split a dicom image into 3 windows with each window per channel and saved as jpg"
+    "Split a dicom image into 3 windows with one window per channel and saved as jpg"
     data = dcmread(fn)
     file_name = str(fn); name = file_name.split('\\')[-1].split('.')[0]
 
