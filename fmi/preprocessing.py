@@ -18,7 +18,7 @@ def mask_and_save_path(file: (L), source=None, show=False, window=dicom_windows.
     for i in file:
         ##This line will have to be changed depending on what platform is being used
         str_file = str(i); file_name = str_file.split('.')[0].split('\\')[-1] #windows
-        #str_file = str(i); one = str_file.split('/')[-1].split('.')[0] #kaggle
+        #str_file = str(i); file_name = str_file.split('/')[-1].split('.')[0] #kaggle
         dcm = dcmread(i)
         wind = dcm.windowed(*window)
         mask = dcm.mask_from_blur(window, sigma=sigma, thresh=thresh, remove_max=False)
