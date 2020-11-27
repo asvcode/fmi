@@ -106,7 +106,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="mask_and_save_df" class="doc_header"><code>mask_and_save_df</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L39" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mask_and_save_df</code>(<strong><code>file</code></strong>:<code>DataFrame</code>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>window</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>sigma</code></strong>:<code>float</code>=<em><code>0.1</code></em>, <strong><code>thresh</code></strong>:<code>float</code>=<em><code>0.9</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="mask_and_save_df" class="doc_header"><code>mask_and_save_df</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L41" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>mask_and_save_df</code>(<strong><code>file</code></strong>:<code>DataFrame</code>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>window</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>sigma</code></strong>:<code>float</code>=<em><code>0.1</code></em>, <strong><code>thresh</code></strong>:<code>float</code>=<em><code>0.9</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Helper to create masks based on dicom window with the option to save the updated image from a dataframe</p>
 
@@ -449,7 +449,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Dataset.updated_dict" class="doc_header"><code>Dataset.updated_dict</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L65" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.updated_dict</code>(<strong><code>windows</code></strong>=<em><code>[(1500, -600)]</code></em>)</p>
+<h4 id="Dataset.updated_dict" class="doc_header"><code>Dataset.updated_dict</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L67" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.updated_dict</code>(<strong><code>windows</code></strong>=<em><code>[(1500, -600)]</code></em>)</p>
 </blockquote>
 
 </div>
@@ -799,7 +799,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="move_files" class="doc_header"><code>move_files</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L90" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>move_files</code>(<strong><code>df</code></strong>, <strong><code>source</code></strong>, <strong><code>save_path</code></strong>)</p>
+<h4 id="move_files" class="doc_header"><code>move_files</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L92" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>move_files</code>(<strong><code>df</code></strong>, <strong><code>source</code></strong>, <strong><code>save_path</code></strong>)</p>
 </blockquote>
 <p>helper to move files</p>
 
@@ -837,7 +837,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L109" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>:<code>str</code>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
+<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L111" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>:<code>str</code>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
 </blockquote>
 <p>Split a dicom image into 3 windows with one window per channel and saved as jpg</p>
 
@@ -1027,7 +1027,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicomsplit" class="doc_header"><code>dicomsplit</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L123" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicomsplit</code>(<strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>None</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="dicomsplit" class="doc_header"><code>dicomsplit</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L125" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicomsplit</code>(<strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>None</code></em>, <strong>**<code>kwargs</code></strong>)</p>
 </blockquote>
 <p>Splits <code>items</code> between train/val with <code>valid_pct</code></p>
 
@@ -1052,7 +1052,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="check_duplicate" class="doc_header"><code>check_duplicate</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L167" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_duplicate</code>(<strong><code>items</code></strong>, <strong><code>seed</code></strong>=<em><code>5</code></em>)</p>
+<h4 id="check_duplicate" class="doc_header"><code>check_duplicate</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L169" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_duplicate</code>(<strong><code>items</code></strong>, <strong><code>seed</code></strong>=<em><code>5</code></em>)</p>
 </blockquote>
 
 </div>
@@ -1090,7 +1090,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicom_splitter" class="doc_header"><code>dicom_splitter</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L172" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_splitter</code>(<strong><code>items</code></strong>, <strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>77</code></em>)</p>
+<h4 id="dicom_splitter" class="doc_header"><code>dicom_splitter</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L174" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_splitter</code>(<strong><code>items</code></strong>, <strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>77</code></em>)</p>
 </blockquote>
 
 </div>
