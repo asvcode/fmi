@@ -3,6 +3,7 @@
 
 
 ![CI](https://github.com/asvcode/fmi/workflows/CI/badge.svg)
+![Docs](https://github.com/asvcode/fmi/workflows/docs/badge.svg)
 
 ![](nbs\images\graphic6.PNG)
 
