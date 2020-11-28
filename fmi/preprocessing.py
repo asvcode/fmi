@@ -4,6 +4,7 @@ __all__ = ['mask_and_save_path', 'mask_and_save_df', 'move_files', 'dicom_conver
            'check_duplicate', 'dicom_splitter']
 
 # Cell
+import pydicom,kornia,skimage
 from fastai.vision.all import *
 from fastai.medical.imaging import *
 from torchvision.utils import save_image
