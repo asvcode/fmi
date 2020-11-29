@@ -1,5 +1,5 @@
 # fmi
-> Additional functionality for [fastai's](https://github.com/fastai/fastai/blob/master/nbs/60_medical.imaging.ipynb) medical imaging module
+> Additional functionality for use with [fastai's](https://github.com/fastai/fastai/blob/master/nbs/60_medical.imaging.ipynb) medical imaging module
 
 
 ![CI](https://github.com/asvcode/fmi/workflows/CI/badge.svg)
@@ -18,14 +18,14 @@
 ### Explore
 ![](nbs/images/graphic7w.PNG)
 
-#### Tutorials on Kaggle ![](nbs/images/kaggle.PNG)
+#### View in Kaggle ![](nbs/images/kagglew.PNG)
 
 - [Instance Sort & View](https://www.kaggle.com/avirdee/sort-tutorial)
 
 ### Preprocessing
 ![](nbs/images/graphic8w.PNG)
 
-#### Tutorials on kaggle ![](nbs/images/kaggle.PNG)
+#### View in kaggle ![](nbs/images/kagglew.PNG)
 
 - [Mask and Save](https://www.kaggle.com/avirdee/mask-and-save-tutorial)
 
