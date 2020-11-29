@@ -15,6 +15,8 @@
 
 ## Tutorials
 
+#### View in Colab  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1cr-lO9wfgO6nuekuFSG8rpBMV_FvTdnQ?usp=sharing)
+
 ### Explore
 ![](nbs/images/graphic7w.PNG)
 
