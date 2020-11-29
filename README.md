@@ -11,7 +11,9 @@
 
 `pip install fmi`
 
-## Tutorials
+## Tutorials on Kaggle
+![](nbs/images/kaggle.PNG)
 
-{% include note.html content='View Mask & Save tutorial on Kaggle (click on Kaggle icon)' %}
-[![kaggle](images/kaggle.PNG)](https://www.kaggle.com/avirdee/mask-and-save-tutorial/)
+- [Sort Tutorial](https://www.kaggle.com/avirdee/sort-tutorial)
+
+- [Dicom Dataframe Tutorial](https://www.kaggle.com/avirdee/dicom-dataframe-tutorial)
