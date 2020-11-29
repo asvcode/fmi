@@ -20,7 +20,7 @@
 
 #### Tutorials on Kaggle ![](nbs/images/kaggle.PNG)
 
-- [Instance Sort](https://www.kaggle.com/avirdee/sort-tutorial)
+- [Instance Sort & View](https://www.kaggle.com/avirdee/sort-tutorial)
 
 ### Preprocessing
 ![](nbs/images/graphic8w.PNG)
