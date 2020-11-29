@@ -18,14 +18,14 @@
 ### Explore
 ![](nbs/images/graphic7w.PNG)
 
-#### View in Kaggle ![](nbs/images/kagglew.PNG)
+#### View in Kaggle ![](nbs/images/kagglew.png)
 
 - [Instance Sort & View](https://www.kaggle.com/avirdee/sort-tutorial)
 
 ### Preprocessing
 ![](nbs/images/graphic8w.PNG)
 
-#### View in kaggle ![](nbs/images/kagglew.PNG)
+#### View in kaggle ![](nbs/images/kagglew.png)
 
 - [Mask and Save](https://www.kaggle.com/avirdee/mask-and-save-tutorial)
 
