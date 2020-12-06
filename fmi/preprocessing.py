@@ -91,22 +91,25 @@ pd.DataFrame.from_dicoms2 = classmethod(_from_dicoms2)
 
 # Cell
 def move_files(df, source, save_path):
-    "helper to move files"
-    for i in df.index:
-        #patient ID
-        patid = str(df.PatientID[i])
-        window = str(df.img_pct_window[i])
+    "helper to move .dcm files"
+    try:
+        df.PatientID
+        for i in df.index:
+            #patient ID
+            patid = str(df.PatientID[i])
+            window = str(df.img_pct_window[i])
+            #fname
+            #filename = str(df.fname[i]).split('/')[-1] #non windows
+            filename = str(df.fname[i]).split('\\')[-1] #windows
+            img = filename.split('.')[0]
+            print(f'ID: {patid} window: {window} instance: {img}')
 
-        #fname
-        filename = str(df.fname[i]).split('/')[-1]
-        img = filename.split('.')[0]
-        print(f'ID: {patid} window: {window} instance: {img}')
-
-        folder_path = save_path + patid
-        if not os.path.exists(folder_path):
-            os.makedirs(folder_path)
-        img_file = Path(f'{source}/train/{patid}/{img}.dcm')
-        shutil.copy(img_file, folder_path, follow_symlinks=True)
+            folder_path = save_path + patid
+            if not os.path.exists(folder_path):
+                os.makedirs(folder_path)
+            img_file = Path(f'{source}/{patid}/{img}.dcm')
+            shutil.copy(img_file, folder_path, follow_symlinks=True)
+    except AttributeError: print('No PatientID in dataframe')
 
 # Cell
 def dicomsplit(valid_pct=0.2, seed=None, **kwargs):

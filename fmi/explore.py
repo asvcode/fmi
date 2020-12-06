@@ -38,12 +38,12 @@ def instance_show(folder: (L), nrows=1):
     return show_images(f_list, titles=t_list, nrows=nrows)
 
 # Cell
-def get_dicom_image(df, key, nrows=3, source=None):
+def get_dicom_image(df, key, nrows=3, source=None, folder_val=None, instance_val=None):
     "Helper to view images by key"
     imgs=[]
     title=[]
     for i in df.index:
-        file_path = f"{source}/{df.iloc[i]['PatientID']}/{df.iloc[i]['InstanceNumber']}.dcm"
+        file_path = f"{source}/{df.iloc[i][folder_val]}/{df.iloc[i][instance_val]}.dcm"
         dcc = dcmread(file_path).pixel_array
         imgs.append(dcc)
         pct = df.iloc[i][key]
