@@ -13,7 +13,7 @@ from .pipeline import *
 
 # Cell
 def instance_sort(folder:(Path, L)):
-    "Helper to sort files by instance number"
+    "Helper to sort files by instance number/ID"
     if isinstance(folder, Path): folder = get_dicom_files(folder)
     if isinstance(folder, L): folder = folder
     sorted_files = []
