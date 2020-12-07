@@ -80,7 +80,7 @@ def get_dicom_image(df, key, nrows=1, source=None, folder_val=None, instance_val
     return show_images(imgs, titles=title, nrows=nrows)
 
 # Cell
-def dicom_convert_3channel(fn:(Path,str), save_dir:(str), win1=dicom_windows.lungs, \
+def dicom_convert_3channel(fn:(Path,str), save_dir=None, show=False, save=False, win1=dicom_windows.lungs, \
                            win2=dicom_windows.liver, win3=dicom_windows.brain):
     "Split a dicom image into 3 windows with one window per channel and saved as jpg"
     data = dcmread(fn)
@@ -91,7 +91,12 @@ def dicom_convert_3channel(fn:(Path,str), save_dir:(str), win1=dicom_windows.lun
     chan_three = np.expand_dims(data.windowed(*(win3)), axis=2)
     image = np.concatenate([chan_one, chan_two, chan_three], axis=2)
     ten_image = TensorImage(image).permute(2,0,1)
-    save_image(ten_image, f'{save_dir}/{name}.jpg')
+    if save is not False:
+        save_image(ten_image, f'{save_dir}/{name}.jpg')
+    else: pass
+    if show is not False:
+        show_images([chan_one, chan_two, chan_three])
+    else: pass
 
 # Cell
 def view_aspects(fol: (L, str), show=False, save=False, save_path=None):
