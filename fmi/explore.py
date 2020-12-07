@@ -38,7 +38,7 @@ def instance_show(folder: (L), nrows=1):
     return show_images(f_list, titles=t_list, nrows=nrows)
 
 # Cell
-def get_dicom_image(df, key, nrows=3, source=None, folder_val=None, instance_val=None):
+def get_dicom_image(df, key, nrows=1, source=None, folder_val=None, instance_val=None):
     "Helper to view images by key"
     imgs=[]
     title=[]
