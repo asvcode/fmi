@@ -77,7 +77,6 @@ def updated_dict(self:DcmDataset, windows=[dicom_windows.lungs]):
     pxs = self.pixel_array
     for f in stats: res['img_'+f] = getattr(pxs, f)()
     res['img_pct_window'] = self.pct_in_window(*windows)
-    res['file_path'] = f'{self.PatientID}/{self.InstanceNumber}.dcm'
     return res
 
 # Cell
