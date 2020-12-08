@@ -3,6 +3,7 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"system_info": "02_explore.ipynb",
+         "get_identifiers": "02_explore.ipynb",
          "instance_sort": "02_explore.ipynb",
          "instance_dcmread": "02_explore.ipynb",
          "instance_show": "02_explore.ipynb",
@@ -11,6 +12,7 @@ index = {"system_info": "02_explore.ipynb",
          "show_aspects": "02_explore.ipynb",
          "mask_and_save_path": "03_preprocessing.ipynb",
          "mask_and_save_df": "03_preprocessing.ipynb",
+         "image_hist": "03_preprocessing.ipynb",
          "DcmDataset.updated_dict": "03_preprocessing.ipynb",
          "pd.DataFrame.from_dicoms2": "03_preprocessing.ipynb",
          "move_files": "03_preprocessing.ipynb",
