@@ -39,13 +39,13 @@ def mask_and_save_path(file: (L), source=None, show=False, window=dicom_windows.
         pass
 
 # Cell
-def mask_and_save_df(file: (pd.DataFrame), source=None, show=False, window=dicom_windows.lungs, sigma:float=0.1,\
-                  thresh:float=0.9, save=False, save_path=None):
+def mask_and_save_df(file: (pd.DataFrame), source, show=False, folder='PatientID', instance='InstanceNumber', \
+                     window=dicom_windows.lungs, sigma:float=0.1, thresh:float=0.9, save=False, save_path=None):
     "Helper to create masks based on dicom window with the option to save the updated image from a dataframe"
     image_list = []
     for i in file.index:
-        file_path = f"{source}/{file.iloc[i]['PatientID']}/{file.iloc[i]['InstanceNumber']}.dcm"
-        file_name = file.iloc[i]['InstanceNumber']
+        file_path = f"{source}/{file.iloc[i][folder]}/{file.iloc[i][instance]}.dcm"
+        file_name = file.iloc[i][instance]
         dcm = dcmread(file_path)
         wind = dcm.windowed(*window)
         mask = dcm.mask_from_blur(window, sigma=sigma, thresh=thresh, remove_max=False)
@@ -97,12 +97,9 @@ def move_files(df, source, save_path):
             #patient ID
             patid = str(df.PatientID[i])
             window = str(df.img_pct_window[i])
-            #fname
             #filename = str(df.fname[i]).split('/')[-1] #non windows
             filename = str(df.fname[i]).split('\\')[-1] #windows
             img = filename.split('.')[0]
-            print(f'ID: {patid} window: {window} instance: {img}')
-
             folder_path = save_path + patid
             if not os.path.exists(folder_path):
                 os.makedirs(folder_path)
