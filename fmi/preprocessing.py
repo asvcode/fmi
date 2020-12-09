@@ -126,47 +126,42 @@ def dicomsplit(valid_pct=0.2, seed=None, **kwargs):
     "Splits `items` between train/val with `valid_pct`"
     "and checks if identical patient IDs exist in both the train and valid sets"
     def _inner(o, **kwargs):
-        train_list = []; valid_list = []
         if seed is not None: torch.manual_seed(seed)
         rand_idx = L(int(i) for i in torch.randperm(len(o)))
         cut = int(valid_pct * len(o))
         trn = rand_idx[cut:]; trn_p = o[rand_idx[cut:]]
         val = rand_idx[:cut]; val_p = o[rand_idx[:cut]]
+        train_L = L(trn, trn_p); val_L = L(val, val_p)
         train_patient = []; train_images = []
-        for i, tfile in enumerate(trn_p):
+        for i, tfile in enumerate(train_L[1]):
             file = dcmread(tfile)
             tpat = file.PatientID
             train_patient.append(tpat)
             file_array = dcmread(tfile).pixel_array
             train_images.append(file_array)
         val_patient = []; val_images = []
-        for i, vfile in enumerate(val_p):
+        for i, vfile in enumerate(val_L[1]):
             file2 = dcmread(vfile)
             vpat = file2.PatientID
             val_patient.append(vpat)
             val_array = dcmread(vfile).pixel_array
             val_images.append(val_array)
-
-        print(rand_idx)
-        print(f'Train: {trn}, {train_patient}')
         show_images(train_images[:20])
-        print(f'Val: {val}, {val_patient}')
-        show_images(val_images[:20])
         is_duplicate = set(train_patient) & set(val_patient)
-        print(f'Duplicate: {set(train_patient) & set(val_patient)}')
-        new_list = []
-        if bool(is_duplicate) is not False:
-            print('duplicate exists')
-            new_list = [elem for elem in train_patient if elem not in val_patient ]
-            print(f'New List: {new_list}')
-        else:
-            print('duplicate does NOT exist')
-            new_list = trn
-        return new_list, val
+        print(f'is_duplicate: {is_duplicate}')
+        show_images(val_images[:20])
+        m_dict = dict(zip(val_patient, val))
+        string_dup = list(is_duplicate)
+        updated_dict = [m_dict.pop(key) for key in string_dup]
+        print(f'Not in duplicate: {m_dict}')
+        new_val = list(m_dict.values())
+        print(f'old val: {val}')
+        print(f'new val: {new_val}')
+        return trn, new_val
     return _inner
 
 # Cell
-def check_duplicate(items, seed=5):
+def check_duplicate(items, valid_pct=0.2, seed=5):
     trn, val = dicomsplit(valid_pct=0.2, seed=seed)(items)
     return trn, val
 
