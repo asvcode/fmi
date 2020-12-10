@@ -8,6 +8,7 @@ import pydicom,kornia,skimage
 from fastai.vision.all import *
 from fastai.medical.imaging import *
 from torchvision.utils import save_image
+import seaborn as sns
 
 from .pipeline import *
 from .explore import get_dicom_image
@@ -75,7 +76,7 @@ def image_hist(file: (L), window=dicom_windows.lungs, sigma:float=0.1, thresh:fl
     lo,hi = bbs
     imh = wind[lo[0]:hi[0],lo[1]:hi[1]]
     imha = array(imh)
-    plt.hist(imha.ravel(), bins=256)
+    sns.histplot(imha.ravel(), bins=256, element='bars')
     show_image(imh)
 
 # Cell
