@@ -162,7 +162,7 @@ def dicomsplit(valid_pct=0.2, seed=None, **kwargs):
 
 # Cell
 def check_duplicate(items, valid_pct=0.2, seed=5):
-    trn, val = dicomsplit(valid_pct=0.2, seed=seed)(items)
+    trn, val = dicomsplit(valid_pct=valid_pct, seed=seed)(items)
     return trn, val
 
 # Cell
