@@ -8,9 +8,8 @@
 
 ## Install
 
-`pip install fmi`
+`git clone https://github.com/asvcode/fmi.git`
 
 ## Tutorials
 
-{% include note.html content='View Mask & Save tutorial on Kaggle (click on Kaggle icon)' %}
-[![kaggle](images/kaggle.PNG)](https://www.kaggle.com/avirdee/mask-and-save-tutorial/)
+[Explore & Preprocessing Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/explore_preprocessing_tutorial.ipynb)
