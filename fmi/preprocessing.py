@@ -206,6 +206,5 @@ def dicom_splitter(items, valid_pct=0.2, seed=77):
     valid_idx = val
     def _inner(o):
         train_idx = np.setdiff1d(np.array(range_of(o)), np.array(valid_idx))
-        print(f'train:{train_idx} val:{valid_idx}')
         return L(train_idx, use_list=True), L(valid_idx, use_list=True)
     return _inner
