@@ -31,7 +31,7 @@ def mask_and_save_path(file: (L), source=None, show=False, window=dicom_windows.
         if save is not False:
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
-            save_image(imh, f'{save_path}/{file_name}.png')
+            save_image(imh, f'{save_path}/{file_name}.jpg')
         else:
             pass
         image_list.append(imh)
@@ -57,7 +57,7 @@ def mask_and_save_df(file: (pd.DataFrame), source, show=False, folder='PatientID
         if save is not False:
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
-            save_image(imh, f'{save_path}/{file_name}.png')
+            save_image(imh, f'{save_path}/{file_name}.jpg')
         else:
             pass
         image_list.append(imh)
