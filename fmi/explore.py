@@ -130,6 +130,8 @@ def show_aspects(fol: (L, str), show=False, save=False, save_path=None):
         print(f'Number of slices: {len(fol)}')
         if show is not False: show_images([axial, sagittal, coronal], titles=('axial', 'sagittal', 'coronal'))
         if save is not False:
+            if not os.path.exists(save_path):
+                os.makedirs(save_path)
             imageio.imwrite(f'{save_path}/axial.jpg', axial)
             imageio.imwrite(f'{save_path}/sagittall.jpg', sagittal)
             imageio.imwrite(f'{save_path}/coronal.jpg', coronal)
