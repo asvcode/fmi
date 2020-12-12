@@ -115,18 +115,21 @@ def show_aspects(fol: (L, str), show=False, save=False, save_path=None):
     slices = []
     for i, s in enumerate(instance_sort(fol)):
         im = dcmread(s[-1]); slices.append(im)
-
-    img_shape = list(slices[0].pixel_array.shape)
-    img_shape.append(len(slices))
-    img3d = np.zeros(img_shape)
-    for i, s in enumerate(slices):
-        img2d = s.pixel_array; img3d[:, :, i] = img2d
-    axial = img3d[:, :, img_shape[2]//2]
-    sagittal = img3d[:, img_shape[1]//2, :]
-    coronal = img3d[img_shape[0]//2, :, :].T
-    print(f'Number of slices: {len(fol)}')
-    if show is not False: show_images([axial, sagittal, coronal], titles=('axial', 'sagittal', 'coronal'))
-    if save is not False:
-        imageio.imwrite(f'{save_path}/axial.jpg', axial)
-        imageio.imwrite(f'{save_path}/sagittall.jpg', sagittal)
-        imageio.imwrite(f'{save_path}/coronal.jpg', coronal)
+    if len(slices)<=0:
+        print('There is only 1 slice')
+        pass
+    else:
+        img_shape = list(slices[0].pixel_array.shape)
+        img_shape.append(len(slices))
+        img3d = np.zeros(img_shape)
+        for i, s in enumerate(slices):
+            img2d = s.pixel_array; img3d[:, :, i] = img2d
+        axial = img3d[:, :, img_shape[2]//2]
+        sagittal = img3d[:, img_shape[1]//2, :]
+        coronal = img3d[img_shape[0]//2, :, :].T
+        print(f'Number of slices: {len(fol)}')
+        if show is not False: show_images([axial, sagittal, coronal], titles=('axial', 'sagittal', 'coronal'))
+        if save is not False:
+            imageio.imwrite(f'{save_path}/axial.jpg', axial)
+            imageio.imwrite(f'{save_path}/sagittall.jpg', sagittal)
+            imageio.imwrite(f'{save_path}/coronal.jpg', coronal)
