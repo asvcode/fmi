@@ -108,7 +108,7 @@ def dicom_convert_3channel(fn:(Path,str), save_dir, show=False, save=False, win1
     else: pass
 
 # Cell
-def show_aspects(fol: (L, str), show=False, save=False, save_path=None):
+def show_aspects(fol: (L, str), show=False, save=False, save_path=None, atype=np.float32):
     "View axial, sagittal and coronal planes"
     if isinstance(fol, str): fol = get_dicom_files(fol)
     if isinstance(fol, L): fol = fol
@@ -124,14 +124,14 @@ def show_aspects(fol: (L, str), show=False, save=False, save_path=None):
         img3d = np.zeros(img_shape)
         for i, s in enumerate(slices):
             img2d = s.pixel_array; img3d[:, :, i] = img2d
-        axial = img3d[:, :, img_shape[2]//2]
-        sagittal = img3d[:, img_shape[1]//2, :]
-        coronal = img3d[img_shape[0]//2, :, :].T
+        axial = img3d[:, :, img_shape[2]//2].astype(atype)
+        sagittal = img3d[:, img_shape[1]//2, :].astype(atype)
+        coronal = img3d[img_shape[0]//2, :, :].T.astype(atype)
         print(f'Number of slices: {len(fol)}')
         if show is not False: show_images([axial, sagittal, coronal], titles=('axial', 'sagittal', 'coronal'))
         if save is not False:
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
-            imageio.imwrite(f'{save_path}/axial.jpg', axial)
-            imageio.imwrite(f'{save_path}/sagittall.jpg', sagittal)
-            imageio.imwrite(f'{save_path}/coronal.jpg', coronal)
+            imageio.imwrite(f'{save_path}/axial.jpg', axial.astype(atype))
+            imageio.imwrite(f'{save_path}/sagittall.jpg', sagittal.astype(atype))
+            imageio.imwrite(f'{save_path}/coronal.jpg', coronal.astype(atype))
