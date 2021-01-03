@@ -45,9 +45,25 @@ def get_identifiers(file: (L)):
     "Check if there are any patient specific identifiers in the head of the dicom"
     dcm = dcmread(file)
     try:
-        print(dcm.Age, dcm.Sex, dcm.ImageComments)
-    except AttributeError:
-        print('No info')
+        print(f'{dcm[0x10, 0x10]}')
+    except KeyError:
+        print('No Patient Name')
+    try:
+        print(f'{dcm[0x10, 0x30]}')
+    except KeyError:
+        print('No Patient Birth Date')
+    try:
+        print(f'{dcm[0x10, 0x40]}')
+    except KeyError:
+        print('No Patient Sex')
+    try:
+        print(f'{dcm[0x10, 0x1010]}')
+    except KeyError:
+        print('No patient Age')
+    try:
+        print(f'{dcm[0x20, 0x4000]}')
+    except KeyError:
+        print('No Image Comments')
 
 # Cell
 def instance_sort(folder:(Path, L)):
