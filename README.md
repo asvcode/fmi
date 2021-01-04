@@ -13,3 +13,5 @@
 ## Tutorials
 
 [Explore & Preprocessing Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/explore_preprocessing_tutorial.ipynb)
+
+[Dicom Splitter Examples](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/dicom_splitter_examples.ipynb)
