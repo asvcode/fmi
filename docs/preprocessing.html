@@ -566,49 +566,11 @@ nb_path: "nbs\03_preprocessing.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Updated <code>from_dicoms</code> method to <code>from_dicoms2</code> that allows you to choose the window setting</p>
+<p>Currently the in house <code>from_dicoms</code> does not allow you to input the window parameters, this updated version however does</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="Dataset.updated_dict" class="doc_header"><code>Dataset.updated_dict</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L83" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.updated_dict</code>(<strong><code>windows</code></strong>=<em><code>[(1500, -600)]</code></em>)</p>
-</blockquote>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -618,7 +580,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>from_dicoms2</code> allows you to set the dicom window, for example in this case the <code>mediastinum</code> window is used</p>
+<p>With the updated version you can now choose the window parameters directly when calling <code>pd.DataFrame.from_dicoms</code>, for example in the case below the <code>mediastinum</code> window is used</p>
 
 </div>
 </div>
@@ -630,7 +592,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dicom_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dicoms2</span><span class="p">(</span><span class="n">m_items</span><span class="p">,</span> <span class="n">windows</span><span class="o">=</span><span class="n">dicom_windows</span><span class="o">.</span><span class="n">mediastinum</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dicom_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dicoms</span><span class="p">(</span><span class="n">m_items</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">dicom_windows</span><span class="o">.</span><span class="n">mediastinum</span><span class="p">)</span>
 <span class="n">dicom_dataframe</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
@@ -683,23 +645,23 @@ nb_path: "nbs\03_preprocessing.ipynb"
       <th>PatientSex</th>
       <th>DeidentificationMethod</th>
       <th>...</th>
-      <th>RescaleIntercept</th>
-      <th>RescaleSlope</th>
-      <th>RescaleType</th>
-      <th>fname</th>
+      <th>ImageOrientationPatient3</th>
+      <th>ImageOrientationPatient4</th>
+      <th>ImageOrientationPatient5</th>
+      <th>MultiPixelSpacing</th>
+      <th>PixelSpacing1</th>
       <th>img_min</th>
       <th>img_max</th>
       <th>img_mean</th>
       <th>img_std</th>
       <th>img_pct_window</th>
-      <th>file_path</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>ISO_IR 100</td>
-      <td>[ORIGINAL, PRIMARY, AXIAL]</td>
+      <td>ORIGINAL</td>
       <td>2.25.12297650151329871895440507938349160734</td>
       <td>CT</td>
       <td>GE MEDICAL SYSTEMS</td>
@@ -709,21 +671,21 @@ nb_path: "nbs\03_preprocessing.ipynb"
       <td></td>
       <td>Table;</td>
       <td>...</td>
-      <td>-1024.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>HU</td>
-      <td>D:\Datasets\osic-pulmonary-fibrosis-progression\train\ID00007637202177411956430\1.dcm</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.652344</td>
       <td>-2000</td>
       <td>2842</td>
       <td>-1.454884</td>
       <td>1137.488858</td>
       <td>0.219498</td>
-      <td>ID00007637202177411956430/1.dcm</td>
     </tr>
     <tr>
       <th>1</th>
       <td>ISO_IR 100</td>
-      <td>[ORIGINAL, PRIMARY, AXIAL]</td>
+      <td>ORIGINAL</td>
       <td>2.25.37611372879908126511187998276199853341</td>
       <td>CT</td>
       <td>GE MEDICAL SYSTEMS</td>
@@ -733,20 +695,20 @@ nb_path: "nbs\03_preprocessing.ipynb"
       <td></td>
       <td>Table;</td>
       <td>...</td>
-      <td>-1024.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>HU</td>
-      <td>D:\Datasets\osic-pulmonary-fibrosis-progression\train\ID00007637202177411956430\10.dcm</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.652344</td>
       <td>-2000</td>
       <td>2918</td>
       <td>19.038597</td>
       <td>1138.876560</td>
       <td>0.248634</td>
-      <td>ID00007637202177411956430/10.dcm</td>
     </tr>
   </tbody>
 </table>
-<p>2 rows × 54 columns</p>
+<p>2 rows × 67 columns</p>
 </div>
 </div>
 
@@ -772,7 +734,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dicom_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dicoms2</span><span class="p">(</span><span class="n">m_items</span><span class="p">,</span> <span class="n">windows</span><span class="o">=</span><span class="n">dicom_windows</span><span class="o">.</span><span class="n">lungs</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dicom_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dicoms</span><span class="p">(</span><span class="n">m_items</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">dicom_windows</span><span class="o">.</span><span class="n">lungs</span><span class="p">)</span>
 <span class="n">dicom_dataframe</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
@@ -825,23 +787,23 @@ nb_path: "nbs\03_preprocessing.ipynb"
       <th>PatientSex</th>
       <th>DeidentificationMethod</th>
       <th>...</th>
-      <th>RescaleIntercept</th>
-      <th>RescaleSlope</th>
-      <th>RescaleType</th>
-      <th>fname</th>
+      <th>ImageOrientationPatient3</th>
+      <th>ImageOrientationPatient4</th>
+      <th>ImageOrientationPatient5</th>
+      <th>MultiPixelSpacing</th>
+      <th>PixelSpacing1</th>
       <th>img_min</th>
       <th>img_max</th>
       <th>img_mean</th>
       <th>img_std</th>
       <th>img_pct_window</th>
-      <th>file_path</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>ISO_IR 100</td>
-      <td>[ORIGINAL, PRIMARY, AXIAL]</td>
+      <td>ORIGINAL</td>
       <td>2.25.12297650151329871895440507938349160734</td>
       <td>CT</td>
       <td>GE MEDICAL SYSTEMS</td>
@@ -851,21 +813,21 @@ nb_path: "nbs\03_preprocessing.ipynb"
       <td></td>
       <td>Table;</td>
       <td>...</td>
-      <td>-1024.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>HU</td>
-      <td>D:\Datasets\osic-pulmonary-fibrosis-progression\train\ID00007637202177411956430\1.dcm</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.652344</td>
       <td>-2000</td>
       <td>2842</td>
       <td>-1.454884</td>
       <td>1137.488858</td>
       <td>0.702209</td>
-      <td>ID00007637202177411956430/1.dcm</td>
     </tr>
     <tr>
       <th>1</th>
       <td>ISO_IR 100</td>
-      <td>[ORIGINAL, PRIMARY, AXIAL]</td>
+      <td>ORIGINAL</td>
       <td>2.25.37611372879908126511187998276199853341</td>
       <td>CT</td>
       <td>GE MEDICAL SYSTEMS</td>
@@ -875,20 +837,20 @@ nb_path: "nbs\03_preprocessing.ipynb"
       <td></td>
       <td>Table;</td>
       <td>...</td>
-      <td>-1024.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>HU</td>
-      <td>D:\Datasets\osic-pulmonary-fibrosis-progression\train\ID00007637202177411956430\10.dcm</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0.652344</td>
       <td>-2000</td>
       <td>2918</td>
       <td>19.038597</td>
       <td>1138.876560</td>
       <td>0.720448</td>
-      <td>ID00007637202177411956430/10.dcm</td>
     </tr>
   </tbody>
 </table>
-<p>2 rows × 54 columns</p>
+<p>2 rows × 67 columns</p>
 </div>
 </div>
 
@@ -932,7 +894,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="move_files" class="doc_header"><code>move_files</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L107" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>move_files</code>(<strong><code>df</code></strong>, <strong><code>source</code></strong>, <strong><code>save_path</code></strong>)</p>
+<h4 id="move_files" class="doc_header"><code>move_files</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L86" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>move_files</code>(<strong><code>df</code></strong>, <strong><code>source</code></strong>, <strong><code>save_path</code></strong>)</p>
 </blockquote>
 <p>helper to move .dcm files</p>
 
@@ -978,7 +940,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicomsplit" class="doc_header"><code>dicomsplit</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L126" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicomsplit</code>(<strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>None</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="dicomsplit" class="doc_header"><code>dicomsplit</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L105" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicomsplit</code>(<strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>None</code></em>, <strong>**<code>kwargs</code></strong>)</p>
 </blockquote>
 <p>Splits <code>items</code> between train/val with <code>valid_pct</code> and checks for identical patients</p>
 
@@ -1003,7 +965,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="check_duplicate" class="doc_header"><code>check_duplicate</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L156" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_duplicate</code>(<strong><code>items</code></strong>, <strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>5</code></em>)</p>
+<h4 id="check_duplicate" class="doc_header"><code>check_duplicate</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L135" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>check_duplicate</code>(<strong><code>items</code></strong>, <strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>5</code></em>)</p>
 </blockquote>
 <p>Helper for dicomsplit to visualize duplicates</p>
 
@@ -1042,7 +1004,7 @@ nb_path: "nbs\03_preprocessing.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicom_splitter" class="doc_header"><code>dicom_splitter</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L197" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_splitter</code>(<strong><code>items</code></strong>, <strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>77</code></em>)</p>
+<h4 id="dicom_splitter" class="doc_header"><code>dicom_splitter</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/preprocessing.py#L176" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_splitter</code>(<strong><code>items</code></strong>, <strong><code>valid_pct</code></strong>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>77</code></em>)</p>
 </blockquote>
 <p>Dicomsplit helper for use in DataBlocks</p>
 

@@ -80,28 +80,7 @@ def image_hist(file: (L), window=dicom_windows.lungs, sigma:float=0.1, thresh:fl
     show_image(imh)
 
 # Cell
-@patch
-def updated_dict(self:DcmDataset, windows=[dicom_windows.lungs]):
-    pxdata = (0x7fe0,0x0010)
-    vals = [self[o] for o in self.keys() if o != pxdata]
-    its = [(v.keyword, v.value) for v in vals]
-    res = dict(its)
-    res['fname'] = self.filename
-
-    stats = 'min', 'max', 'mean', 'std'
-    pxs = self.pixel_array
-    for f in stats: res['img_'+f] = getattr(pxs, f)()
-    res['img_pct_window'] = self.pct_in_window(*windows)
-    return res
-
-# Cell
-def _dcm2dict2(fn, windows, **kwargs): return fn.dcmread().updated_dict(windows, **kwargs)
-
-# Cell
-@delegates(parallel)
-def _from_dicoms2(cls, fns, n_workers=0, **kwargs):
-    return pd.DataFrame(parallel(_dcm2dict2, fns, n_workers=n_workers, **kwargs))
-pd.DataFrame.from_dicoms2 = classmethod(_from_dicoms2)
+def _dcm2dict(fn, window, **kwargs): return fn.dcmread().as_dict(window, **kwargs)
 
 # Cell
 def move_files(df, source, save_path):
