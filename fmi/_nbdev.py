@@ -4,7 +4,8 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"system_info": "02_explore.ipynb",
          "random_": "02_explore.ipynb",
-         "get_identifiers": "02_explore.ipynb",
+         "get_image_info": "02_explore.ipynb",
+         "get_pii": "02_explore.ipynb",
          "instance_sort": "02_explore.ipynb",
          "instance_dcmread": "02_explore.ipynb",
          "instance_show": "02_explore.ipynb",

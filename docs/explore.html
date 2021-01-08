@@ -189,9 +189,110 @@ pydicom Version: </span>2.1.1
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dcmread</span><span class="p">(</span><span class="n">sort_items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Dataset.file_meta -------------------------------
+(0002, 0000) File Meta Information Group Length  UL: 200
+(0002, 0001) File Meta Information Version       OB: b&#39;\x00\x01&#39;
+(0002, 0002) Media Storage SOP Class UID         UI: CT Image Storage
+(0002, 0003) Media Storage SOP Instance UID      UI: 2.25.12297650151329871895440507938349160734
+(0002, 0010) Transfer Syntax UID                 UI: Explicit VR Little Endian
+(0002, 0012) Implementation Class UID            UI: 1.2.276.0.7230010.3.0.3.6.1
+(0002, 0013) Implementation Version Name         SH: &#39;OSIRIX_361&#39;
+(0002, 0016) Source Application Entity Title     AE: &#39;ANONYMOUS&#39;
+-------------------------------------------------
+(0008, 0005) Specific Character Set              CS: &#39;ISO_IR 100&#39;
+(0008, 0008) Image Type                          CS: [&#39;ORIGINAL&#39;, &#39;PRIMARY&#39;, &#39;AXIAL&#39;]
+(0008, 0018) SOP Instance UID                    UI: 2.25.12297650151329871895440507938349160734
+(0008, 0060) Modality                            CS: &#39;CT&#39;
+(0008, 0070) Manufacturer                        LO: &#39;GE MEDICAL SYSTEMS&#39;
+(0008, 1090) Manufacturer&#39;s Model Name           LO: &#39;LightSpeed VCT&#39;
+(0010, 0010) Patient&#39;s Name                      PN: &#39;ID00007637202177411956430&#39;
+(0010, 0020) Patient ID                          LO: &#39;ID00007637202177411956430&#39;
+(0010, 0040) Patient&#39;s Sex                       CS: &#39;&#39;
+(0012, 0063) De-identification Method            LO: &#39;Table;&#39;
+(0018, 0015) Body Part Examined                  CS: &#39;Chest&#39;
+(0018, 0050) Slice Thickness                     DS: &#34;1.25&#34;
+(0018, 0060) KVP                                 DS: &#34;120.0&#34;
+(0018, 1110) Distance Source to Detector         DS: &#34;949.075012&#34;
+(0018, 1111) Distance Source to Patient          DS: &#34;541.0&#34;
+(0018, 1120) Gantry/Detector Tilt                DS: &#34;0.0&#34;
+(0018, 1130) Table Height                        DS: &#34;130.0&#34;
+(0018, 1140) Rotation Direction                  CS: &#39;CW&#39;
+(0018, 1151) X-Ray Tube Current                  IS: &#34;79&#34;
+(0018, 1170) Generator Power                     IS: &#34;9600&#34;
+(0018, 1190) Focal Spot(s)                       DS: &#34;0.7&#34;
+(0018, 1210) Convolution Kernel                  SH: &#39;BONE&#39;
+(0018, 5100) Patient Position                    CS: &#39;FFS&#39;
+(0020, 000d) Study Instance UID                  UI: 2.25.80896671862726099888461805953012988790
+(0020, 000e) Series Instance UID                 UI: 2.25.51769600465874599901723496946193454321
+(0020, 0010) Study ID                            SH: &#39;&#39;
+(0020, 0013) Instance Number                     IS: &#34;1&#34;
+(0020, 0032) Image Position (Patient)            DS: [-158.700, -153.500, -69.750]
+(0020, 0037) Image Orientation (Patient)         DS: [1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000]
+(0020, 0052) Frame of Reference UID              UI: 2.25.64058019325784235774105718339367403144
+(0020, 1040) Position Reference Indicator        LO: &#39;SN&#39;
+(0020, 1041) Slice Location                      DS: &#34;-69.75&#34;
+(0028, 0002) Samples per Pixel                   US: 1
+(0028, 0004) Photometric Interpretation          CS: &#39;MONOCHROME2&#39;
+(0028, 0010) Rows                                US: 512
+(0028, 0011) Columns                             US: 512
+(0028, 0030) Pixel Spacing                       DS: [0.652344, 0.652344]
+(0028, 0100) Bits Allocated                      US: 16
+(0028, 0101) Bits Stored                         US: 16
+(0028, 0102) High Bit                            US: 15
+(0028, 0103) Pixel Representation                US: 1
+(0028, 0120) Pixel Padding Value                 SS: -2000
+(0028, 1050) Window Center                       DS: &#34;-500.0&#34;
+(0028, 1051) Window Width                        DS: &#34;-1500.0&#34;
+(0028, 1052) Rescale Intercept                   DS: &#34;-1024.0&#34;
+(0028, 1053) Rescale Slope                       DS: &#34;1.0&#34;
+(0028, 1054) Rescale Type                        LO: &#39;HU&#39;
+(7fe0, 0010) Pixel Data                          OW: Array of 524288 elements</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Get-Identifiers">Get Identifiers<a class="anchor-link" href="#Get-Identifiers"> </a></h3>
+<h3 id="Identifiers">Identifiers<a class="anchor-link" href="#Identifiers"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Typically the head of a dicom can contain alot of information.</p>
+<p>To quickly view important <code>Identifiers</code> are key aspects within the dicom head that provide's information that may be useful when exploring the dicom dataset.</p>
+<blockquote><p><a href="/fmi/explore.html#get_image_info"><code>get_image_info</code></a> displays image specific identifiers</p>
+<p><a href="/fmi/explore.html#get_pii"><code>get_pii</code></a> looks for personal identifiable information</p>
+</blockquote>
+
 </div>
 </div>
 </div>
@@ -213,9 +314,9 @@ pydicom Version: </span>2.1.1
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_identifiers" class="doc_header"><code>get_identifiers</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_identifiers</code>(<strong><code>file</code></strong>:<code>L</code>)</p>
+<h4 id="get_image_info" class="doc_header"><code>get_image_info</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_image_info</code>(<strong><code>file</code></strong>:<code>L</code>)</p>
 </blockquote>
-<p>Check if there are any patient specific identifiers in the head of the dicom</p>
+<p>Display image specific identifiers in the head of the dicom</p>
 
 </div>
 
@@ -234,7 +335,76 @@ pydicom Version: </span>2.1.1
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_identifiers</span><span class="p">(</span><span class="n">sort_items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_image_info</span><span class="p">(</span><span class="n">sort_items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(0008, 0060) Modality                            CS: &#39;CT&#39;
+(0028, 0004) Photometric Interpretation          CS: &#39;MONOCHROME2&#39;
+(0028, 0030) Pixel Spacing                       DS: [0.652344, 0.652344]
+(0018, 0050) Slice Thickness                     DS: &#34;1.25&#34;
+(0028, 0100) Bits Allocated                      US: 16
+(0028, 1052) Rescale Intercept                   DS: &#34;-1024.0&#34;
+(0028, 1053) Rescale Slope                       DS: &#34;1.0&#34;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_pii" class="doc_header"><code>get_pii</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_pii</code>(<strong><code>file</code></strong>:<code>L</code>)</p>
+</blockquote>
+<p>Disply any patient identifiable identifiers in the head of the dicom</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">get_pii</span><span class="p">(</span><span class="n">sort_items</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -355,7 +525,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="instance_sort" class="doc_header"><code>instance_sort</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_sort</code>(<strong><code>folder</code></strong>:<code>L'&gt;)</code>)</p>
+<h4 id="instance_sort" class="doc_header"><code>instance_sort</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L110" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_sort</code>(<strong><code>folder</code></strong>:<code>L'&gt;)</code>)</p>
 </blockquote>
 <p>Helper to sort files by instance number/ID</p>
 
@@ -387,7 +557,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="instance_dcmread" class="doc_header"><code>instance_dcmread</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L88" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_dcmread</code>(<strong><code>folder</code></strong>:<code>L</code>)</p>
+<h4 id="instance_dcmread" class="doc_header"><code>instance_dcmread</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L121" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_dcmread</code>(<strong><code>folder</code></strong>:<code>L</code>)</p>
 </blockquote>
 <p>instance dcmread</p>
 
@@ -419,7 +589,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="instance_show" class="doc_header"><code>instance_show</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L94" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_show</code>(<strong><code>folder</code></strong>:<code>L</code>, <strong><code>nrows</code></strong>=<em><code>1</code></em>)</p>
+<h4 id="instance_show" class="doc_header"><code>instance_show</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L127" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>instance_show</code>(<strong><code>folder</code></strong>:<code>L</code>, <strong><code>nrows</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Helper to display sorted files by instance number</p>
 
@@ -643,7 +813,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_dicom_image" class="doc_header"><code>get_dicom_image</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L103" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dicom_image</code>(<strong><code>df</code></strong>, <strong><code>key</code></strong>, <strong><code>nrows</code></strong>=<em><code>1</code></em>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>folder_val</code></strong>=<em><code>None</code></em>, <strong><code>instance_val</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="get_dicom_image" class="doc_header"><code>get_dicom_image</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L136" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dicom_image</code>(<strong><code>df</code></strong>, <strong><code>key</code></strong>, <strong><code>nrows</code></strong>=<em><code>1</code></em>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>folder_val</code></strong>=<em><code>None</code></em>, <strong><code>instance_val</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Helper to view images by key</p>
 
@@ -974,7 +1144,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L116" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
+<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L149" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
 </blockquote>
 <p>Split a dicom image into 3 windows with one window per channel and saved as jpg</p>
 
@@ -1192,7 +1362,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="show_aspects" class="doc_header"><code>show_aspects</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L135" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>show_aspects</code>(<strong><code>fol</code></strong>:<code>L'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>, <strong><code>atype</code></strong>=<em><code>float32</code></em>)</p>
+<h4 id="show_aspects" class="doc_header"><code>show_aspects</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L168" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>show_aspects</code>(<strong><code>fol</code></strong>:<code>L'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>, <strong><code>atype</code></strong>=<em><code>float32</code></em>)</p>
 </blockquote>
 <p>View axial, sagittal and coronal planes</p>
 
