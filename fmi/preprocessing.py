@@ -80,7 +80,7 @@ def image_hist(file: (L), window=dicom_windows.lungs, sigma:float=0.1, thresh:fl
     show_image(imh)
 
 # Cell
-def _dcm2dict(fn, window, **kwargs): return fn.dcmread().as_dict(window, **kwargs)
+def _dcm2dict(fn, window=dicom_windows.brain, **kwargs): return fn.dcmread().as_dict(window=window, **kwargs)
 
 # Cell
 def move_files(df, source, save_path):
