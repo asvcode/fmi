@@ -647,6 +647,59 @@ No Image Comments
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Show-function">Show function<a class="anchor-link" href="#Show-function"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include image.html alt="alt_text" align="left" width="124" height="59" max-width="124" file="/fmi/images/git_merged.png" %}</p>
+<p>This update has been successfully merged with <code>fastai.medical.imaging</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Most 3D Dicom datasets contain more than 1 frame or slice per patient.  Out of the box the <code>show</code> function from <code>fastai.medical.imaging</code> throws an error if there are more than 1 slices in a dataset.  This update now correctly displays the image irrespective if there is 1 or more slices.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Dataset.show" class="doc_header"><code>Dataset.show</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L136" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.show</code>(<strong><code>frames</code></strong>=<em><code>1</code></em>, <strong><code>scale</code></strong>=<em><code>True</code></em>, <strong><code>cmap</code></strong>=<em><code>&lt;matplotlib.colors.LinearSegmentedColormap object at 0x000001D9AEC424C8&gt;</code></em>, <strong><code>min_px</code></strong>=<em><code>-1100</code></em>, <strong><code>max_px</code></strong>=<em><code>None</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+</blockquote>
+<p>Adds functionality to view dicom images where each file may have more than 1 frame</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="View-images">View images<a class="anchor-link" href="#View-images"> </a></h3>
 </div>
 </div>
@@ -813,7 +866,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_dicom_image" class="doc_header"><code>get_dicom_image</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L136" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dicom_image</code>(<strong><code>df</code></strong>, <strong><code>key</code></strong>, <strong><code>nrows</code></strong>=<em><code>1</code></em>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>folder_val</code></strong>=<em><code>None</code></em>, <strong><code>instance_val</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="get_dicom_image" class="doc_header"><code>get_dicom_image</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L151" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_dicom_image</code>(<strong><code>df</code></strong>, <strong><code>key</code></strong>, <strong><code>nrows</code></strong>=<em><code>1</code></em>, <strong><code>source</code></strong>=<em><code>None</code></em>, <strong><code>folder_val</code></strong>=<em><code>None</code></em>, <strong><code>instance_val</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>Helper to view images by key</p>
 
@@ -1144,7 +1197,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L149" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
+<h4 id="dicom_convert_3channel" class="doc_header"><code>dicom_convert_3channel</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L164" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dicom_convert_3channel</code>(<strong><code>fn</code></strong>:<code>Path'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>save_dir</code></strong>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>win1</code></strong>=<em><code>(1500, -600)</code></em>, <strong><code>win2</code></strong>=<em><code>(150, 30)</code></em>, <strong><code>win3</code></strong>=<em><code>(80, 40)</code></em>)</p>
 </blockquote>
 <p>Split a dicom image into 3 windows with one window per channel and saved as jpg</p>
 
@@ -1362,7 +1415,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="show_aspects" class="doc_header"><code>show_aspects</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L168" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>show_aspects</code>(<strong><code>fol</code></strong>:<code>L'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>, <strong><code>atype</code></strong>=<em><code>float32</code></em>)</p>
+<h4 id="show_aspects" class="doc_header"><code>show_aspects</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L183" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>show_aspects</code>(<strong><code>fol</code></strong>:<code>L'&gt;, &lt;class 'str'&gt;)</code>, <strong><code>show</code></strong>=<em><code>False</code></em>, <strong><code>save</code></strong>=<em><code>False</code></em>, <strong><code>save_path</code></strong>=<em><code>None</code></em>, <strong><code>atype</code></strong>=<em><code>float32</code></em>)</p>
 </blockquote>
 <p>View axial, sagittal and coronal planes</p>
 

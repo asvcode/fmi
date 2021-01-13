@@ -133,6 +133,21 @@ def instance_show(folder: (L), nrows=1):
     return show_images(f_list, titles=t_list, nrows=nrows)
 
 # Cell
+@patch
+def show(self:DcmDataset, frames=1, scale=True, cmap=plt.cm.bone, min_px=-1100, max_px=None, **kwargs):
+    "Adds functionality to view dicom images where each file may have more than 1 frame"
+    px = (self.windowed(*scale) if isinstance(scale,tuple)
+          else self.hist_scaled(min_px=min_px,max_px=max_px,brks=scale) if isinstance(scale,(ndarray,Tensor))
+          else self.hist_scaled(min_px=min_px,max_px=max_px) if scale
+          else self.scaled_px)
+    if px.ndim > 2:
+        gh=[]
+        p = px.shape; print(f'{p[0]} frames per file')
+        for i in range(frames): u = px[i]; gh.append(u)
+        show_images(gh, **kwargs)
+    else: show_image(px, cmap=cmap, **kwargs)
+
+# Cell
 def get_dicom_image(df, key, nrows=1, source=None, folder_val=None, instance_val=None):
     "Helper to view images by key"
     imgs=[]
