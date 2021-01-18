@@ -25,7 +25,7 @@ index = {"system_info": "02_explore.ipynb",
          "PILWindow": "04_pipeline.ipynb",
          "LungWindow": "04_pipeline.ipynb",
          "PEWindow": "04_pipeline.ipynb",
-         "visualize_layesr": "06_examine.ipynb"}
+         "visualize_layers": "06_examine.ipynb"}
 
 modules = ["explore.py",
            "preprocessing.py",
