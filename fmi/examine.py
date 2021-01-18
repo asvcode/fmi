@@ -4,6 +4,7 @@ __all__ = ['visualize_layers']
 
 # Cell
 from fastai.layers import flatten_model
+from fastai.vision.all import *
 
 # Cell
 def visualize_layers(fn, nrows=5, ncols=5):
