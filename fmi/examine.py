@@ -3,6 +3,9 @@
 __all__ = ['visualize_layers']
 
 # Cell
+from fastai.layers import flatten_model
+
+# Cell
 def visualize_layers(fn, nrows=5, ncols=5):
     "Visualize how an image is transformed as it goes through the layers in the model"
     img_list = []; size_list = []
