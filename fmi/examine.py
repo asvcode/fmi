@@ -7,7 +7,7 @@ from fastai.layers import flatten_model
 from fastai.vision.all import *
 
 # Cell
-def visualize_layers(fn, nrows=5, ncols=5):
+def visualize_layers(fn, learn, nrows=5, ncols=5):
     "Visualize how an image is transformed as it goes through the layers in the model"
     img_list = []; size_list = []
     head_layer = flatten_model(learn.model[0])
