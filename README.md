@@ -4,7 +4,8 @@
 
 ![CI](https://github.com/asvcode/fmi/workflows/CI/badge.svg)
 
-![](nbs/images/graphic6t.PNG)
+
+[<img src="nbs/images/graphic6t.PNG" alt="fmi" align="left" width="224" height="381" />]
 
 ## Install
 
@@ -15,3 +16,5 @@
 [Explore & Preprocessing Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/explore_preprocessing_tutorial.ipynb)
 
 [Dicom Splitter Examples](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/dicom_splitter_examples.ipynb)
+
+[Starter Medical Imaging Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/medical_imaging_tutorial.ipynb)
