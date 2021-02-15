@@ -114,12 +114,12 @@ def dicomsplit(valid_pct=0.2, seed=None, **kwargs):
         train_L = L(trn, trn_p); val_L = L(val, val_p)
         train_patient = []; train_images = []
         for i, tfile in enumerate(train_L[1]):
-            file = dcmread(tfile)
+            file = tfile.dcmread()
             tpat = file.PatientID
             train_patient.append(tpat)
         val_patient = []; val_images = []
         for i, vfile in enumerate(val_L[1]):
-            file2 = dcmread(vfile)
+            file2 = vfile.dcmread()
             vpat = file2.PatientID
             val_patient.append(vpat)
         is_duplicate = set(train_patient) & set(val_patient)
@@ -140,12 +140,12 @@ def check_duplicate(items, valid_pct=0.2, seed=5):
     for file in train_L[1]:
         fn = str(file).split('\\')[-2]
         train_patient.append(fn)
-        file_array = dcmread(file).pixel_array
+        file_array = file.dcmread().pixel_array
         train_images.append(file_array)
     for vfile in val_L[1]:
         vl = str(vfile).split('\\')[-2]
         val_patient.append(vl)
-        val_array = dcmread(vfile).pixel_array
+        val_array = vfile.dcmread().pixel_array
         val_images.append(val_array)
     nv = []
     for u in new_val_o:
