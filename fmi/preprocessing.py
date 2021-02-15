@@ -22,7 +22,7 @@ def mask_and_save_path(file: (L), source=None, show=False, window=dicom_windows.
         ##This line will have to be changed depending on what platform is being used
         str_file = str(i); file_name = str_file.split('.')[0].split('\\')[-1] #windows
         #str_file = str(i); file_name = str_file.split('/')[-1].split('.')[0] #kaggle
-        dcm = dcmread(i)
+        dcm = i.dcmread()
         wind = dcm.windowed(*window)
         mask = dcm.mask_from_blur(window, sigma=sigma, thresh=thresh, remove_max=False)
         bbs = mask2bbox(mask)
@@ -46,9 +46,9 @@ def mask_and_save_df(file: (pd.DataFrame), source, show=False, folder='PatientID
     "Helper to create masks based on dicom window with the option to save the updated image from a dataframe"
     image_list = []
     for i in file.index:
-        file_path = f"{source}/{file.iloc[i][folder]}/{file.iloc[i][instance]}.dcm"
+        file_path = Path(f"{source}/{file.iloc[i][folder]}/{file.iloc[i][instance]}.dcm")
         file_name = file.iloc[i][instance]
-        dcm = dcmread(file_path)
+        dcm = file_path.dcmread()
         wind = dcm.windowed(*window)
         mask = dcm.mask_from_blur(window, sigma=sigma, thresh=thresh, remove_max=False)
         bbs = mask2bbox(mask)
@@ -69,7 +69,7 @@ def mask_and_save_df(file: (pd.DataFrame), source, show=False, folder='PatientID
 # Cell
 def image_hist(file: (L), window=dicom_windows.lungs, sigma:float=0.1, thresh:float=0.9):
     "Helper that creates masks based on dicom window and plots corresponding histogram"
-    dcm = dcmread(file)
+    dcm = file.dcmread()
     wind = dcm.windowed(*window)
     mask = dcm.mask_from_blur(window, sigma=sigma, thresh=thresh, remove_max=False)
     bbs = mask2bbox(mask)
