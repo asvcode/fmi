@@ -34,8 +34,9 @@ class PILWindow(PILBase):
     _open_args,_tensor_cls,_show_args = {},TensorDicom,TensorDicom._show_args
     @classmethod
     def create(cls, fn:(Path,str,bytes), mode=None, window=dicom_windows.lungs, **kwargs)->None:
-        if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
-        if isinstance(fn,(Path,str)): im = fn.dcmread()
+        if isinstance(fn, bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
+        if isinstance(fn, Path): im = fn.dcmread()
+        if isinstance(fn, str): im = Path(fn).dcmread()
 
         if window is not None:
             scaled = np.array(im.windowed(*window).numpy())*4294967296 #*2**16-1
@@ -49,8 +50,9 @@ class LungWindow(PILBase):
     _open_args,_tensor_cls,_show_args = {},TensorDicom,TensorDicom._show_args
     @classmethod
     def create(cls, fn:(Path,str,bytes), mode=None)->None:
-        if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
-        if isinstance(fn,(Path,str)): im = fn.dcmread()
+        if isinstance(fn, bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
+        if isinstance(fn, Path): im = fn.dcmread()
+        if isinstance(fn, str): im = Path(fn).dcmread()
         scaled = np.array(im.windowed(l=-600, w=1500).numpy())*255
         scaled = scaled.astype(np.uint8)
         return cls(Image.fromarray(scaled))
@@ -60,8 +62,9 @@ class PEWindow(PILBase):
     _open_args,_tensor_cls,_show_args = {},TensorDicom,TensorDicom._show_args
     @classmethod
     def create(cls, fn:(Path,str,bytes), mode=None)->None:
-        if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
-        if isinstance(fn,(Path,str)): im = fn.dcmread()
+        if isinstance(fn, bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
+        if isinstance(fn, Path): im = fn.dcmread()
+        if isinstance(fn, str): im = Path(fn).dcmread()
         scaled = np.array(im.windowed(l=40, w=400).numpy())*255
         scaled = scaled.astype(np.uint8)
         return cls(Image.fromarray(scaled))
