@@ -7,6 +7,7 @@ __all__ = ['system_info', 'random_', 'get_image_info', 'get_pii', 'instance_sort
 from fastai.vision.all import *
 from fastai.medical.imaging import *
 from torchvision.utils import save_image
+import imageio
 matplotlib.rcParams['image.cmap'] = 'bone'
 
 from .pipeline import *
