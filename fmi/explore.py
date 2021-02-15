@@ -51,7 +51,7 @@ def random_(items, value=10):
 # Cell
 def get_image_info(file: (L)):
     "Display image specific identifiers in the head of the dicom"
-    dcm = dcmread(file)
+    dcm = file.dcmread()
     try:
         print(f'{dcm[0x08, 0x60]}')
     except KeyError:
@@ -84,7 +84,7 @@ def get_image_info(file: (L)):
 # Cell
 def get_pii(file: (L)):
     "Disply any patient identifiable identifiers in the head of the dicom"
-    dcm = dcmread(file)
+    dcm = file.dcmread()
     try:
         print(f'{dcm[0x10, 0x10]}')
     except KeyError:
@@ -113,7 +113,7 @@ def instance_sort(folder:(Path, L)):
     if isinstance(folder, L): folder = folder
     sorted_files = []
     for file in folder:
-        instance = dcmread(file)[0x20, 0x13].value
+        instance = file.dcmread()[0x20, 0x13].value
         sorted_files.append([instance, file])
     return L(sorted(sorted_files))
 
@@ -128,7 +128,7 @@ def instance_show(folder: (L), nrows=1):
     "Helper to display sorted files by instance number"
     f_list = []; t_list = []
     for file in instance_sort(folder):
-        f = TensorDicom(dcmread(file[1]).pixel_array)
+        f = TensorDicom(file[1].dcmread().pixel_array)
         f_list.append(f); t_list.append(file[0])
     return show_images(f_list, titles=t_list, nrows=nrows)
 
@@ -162,8 +162,8 @@ def get_dicom_image(df, key, nrows=1, source=None, folder_val=None, instance_val
     imgs=[]
     title=[]
     for i in df.index:
-        file_path = f"{source}/{df.iloc[i][folder_val]}/{df.iloc[i][instance_val]}.dcm"
-        dcc = dcmread(file_path).pixel_array
+        file_path = Path(f"{source}/{df.iloc[i][folder_val]}/{df.iloc[i][instance_val]}.dcm")
+        dcc = file_path.dcmread().pixel_array
         imgs.append(dcc)
         pct = df.iloc[i][key]
         title.append(pct)
@@ -173,7 +173,7 @@ def get_dicom_image(df, key, nrows=1, source=None, folder_val=None, instance_val
 def dicom_convert_3channel(fn:(Path,str), save_dir, show=False, save=False, win1=dicom_windows.lungs, \
                            win2=dicom_windows.liver, win3=dicom_windows.brain):
     "Split a dicom image into 3 windows with one window per channel and saved as jpg"
-    data = dcmread(fn)
+    data = fn.dcmread()
     file_name = str(fn); name = file_name.split('\\')[-1].split('.')[0]
 
     chan_one = np.expand_dims(data.windowed(*win1), axis=2)
@@ -195,7 +195,7 @@ def show_aspects(fol: (L, str), show=False, save=False, save_path=None, atype=np
     if isinstance(fol, L): fol = fol
     slices = []
     for i, s in enumerate(instance_sort(fol)):
-        im = dcmread(s[-1]); slices.append(im)
+        im = s[-1].dcmread(); slices.append(im)
     if len(slices)<=0:
         print('There is only 1 slice')
         pass
