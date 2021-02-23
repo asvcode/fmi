@@ -6,6 +6,8 @@
     "pipeline": "pipeline.html",
     "train": "train.html",
     "examine": "examine.html",
-    "tutorials": "tutorial.html"
+    "wearable": "wearable.html",
+    "tutorials": "tutorial.html",
+    "Title": "Untitled.html"
   }
 }
