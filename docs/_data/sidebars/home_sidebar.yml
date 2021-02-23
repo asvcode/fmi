@@ -30,9 +30,6 @@ entries:
     - output: web,pdf
       title: tutorials
       url: tutorial.html
-    - output: web,pdf
-      title: Title
-      url: Untitled.html
     output: web
     title: fmi
   output: web
