@@ -9,6 +9,7 @@ from fastai.data.external import *
 
 from fastai.medical.imaging import PILBase
 from fastai.medical.imaging import *
+from fastai.vision.all import *
 
 from PIL import Image
 
