@@ -39,7 +39,7 @@ class CustomPILDicom(PILBase):
     _integer_args = np.int8
     h = 1
     @classmethod
-    def create(cls, fn:(Path,str,bytes))->None:
+    def create(cls, fn:(Path,str,bytes), window_args=None)->None:
         "Customizable _mode, _window_args, _integer_args arguments for PILDicom "
         if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
         if isinstance(fn,(Path,str)): im = pydicom.dcmread(fn)
