@@ -22,9 +22,7 @@ index = {"system_info": "02_explore.ipynb",
          "check_duplicate": "03_preprocessing.ipynb",
          "dicom_splitter": "03_preprocessing.ipynb",
          "dicom_windows": "04_pipeline.ipynb",
-         "PILWindow": "04_pipeline.ipynb",
-         "LungWindow": "04_pipeline.ipynb",
-         "PEWindow": "04_pipeline.ipynb",
+         "CustomPILDicom": "04_pipeline.ipynb",
          "visualize_layers": "06_examine.ipynb"}
 
 modules = ["explore.py",
