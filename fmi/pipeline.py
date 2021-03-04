@@ -36,7 +36,6 @@ class CustomPILDicom(PILBase):
     _open_args = {}
     _tensor_cls = TensorDicom
     _show_args = TensorDicom._show_args
-    _window_args = None
     _integer_args = np.int8
     h = 1
     @classmethod
@@ -44,8 +43,8 @@ class CustomPILDicom(PILBase):
         "Customizable _mode, _window_args, _integer_args arguments for PILDicom "
         if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
         if isinstance(fn,(Path,str)): im = pydicom.dcmread(fn)
-        if _window_args is not None:
-            scaled = np.array(im.windowed(*_window_args).numpy())*h
+        if window_args is not None:
+            scaled = np.array(im.windowed(*window_args).numpy())*h
         else:
             scaled = np.array(im.pixel_array).astype(_integer_args)*h
         pill_im = Image.fromarray(scaled)
