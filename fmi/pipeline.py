@@ -32,9 +32,11 @@ dicom_windows = types.SimpleNamespace(
 
 # Cell
 class CustomPILDicom(PILDicom):
+    "Customizable mode, window_args, integer_args arguments for PILDicom "
+    def __init__(self, window_args ,integer_args, mode, h):
+        self.window_args; self.integer_args; self.mode; self.h = window_args; integer_args; mode; h
     @classmethod
-    def create(cls, fn:(Path, str, bytes)):
-        "Customizable mode, window_args, integer_args arguments for PILDicom "
+    def create(cls, fn:(Path, str, bytes))->None:
         if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
         if isinstance(fn,(Path,str)): im = pydicom.dcmread(fn)
         if window_args is not None:
