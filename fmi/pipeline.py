@@ -31,13 +31,10 @@ dicom_windows = types.SimpleNamespace(
 )
 
 # Cell
-class CustomPILDicom(PILBase):
-    _open_args = {}
-    _tensor_cls = TensorDicom
-    _show_args = TensorDicom._show_args
+class CustomPILDicom(PILDicom):
     @classmethod
-    def create(cls, fn:(Path,str,bytes), window_args=None, integer_args=np.int8, mode='L', h=1)->None:
-        "Customizable _mode, _window_args, _integer_args arguments for PILDicom "
+    def create(cls, fn:(Path, str, bytes)):
+        "Customizable mode, window_args, integer_args arguments for PILDicom "
         if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
         if isinstance(fn,(Path,str)): im = pydicom.dcmread(fn)
         if window_args is not None:
