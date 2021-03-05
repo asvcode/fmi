@@ -35,13 +35,12 @@ class CustomPILDicom(PILDicom):
     "Customizable mode, window_args, integer_args arguments for PILDicom "
     def __init__(self, window_args ,integer_args, mode, h):
         self.window_args; self.integer_args; self.mode; self.h = window_args; integer_args; mode; h
-        window_args = None
     @classmethod
-    def create(cls, fn:(Path, str, bytes))->None:
+    def create(cls, fn:(Path, str, bytes), window_args=window_args)->None:
         if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
         if isinstance(fn,(Path,str)): im = pydicom.dcmread(fn)
         if window_args is not None:
-            scaled = np.array(im.windowed(*window_args).numpy())*h
+            scaled = np.array(im.windowed(*self.window_args).numpy())*h
         else:
             scaled = np.array(im.pixel_array).astype(integer_args)*h
         pill_im = Image.fromarray(scaled)
