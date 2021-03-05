@@ -36,7 +36,7 @@ class CustomPILDicom(PILDicom):
     def __init__(self, window_args ,integer_args, mode, h):
         self.window_args; self.integer_args; self.mode; self.h = window_args; integer_args; mode; h
     @classmethod
-    def create(cls, fn:(Path, str, bytes), window_args=window_args)->None:
+    def create(cls, fn:(Path, str, bytes), window_args=None)->None:
         if isinstance(fn,bytes): im = pydicom.dcmread(pydicom.filebase.DicomBytesIO(fn))
         if isinstance(fn,(Path,str)): im = pydicom.dcmread(fn)
         if window_args is not None:
