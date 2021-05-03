@@ -727,7 +727,7 @@ No Image Comments
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Dataset.show" class="doc_header"><code>Dataset.show</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L146" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.show</code>(<strong><code>frames</code></strong>=<em><code>1</code></em>, <strong><code>scale</code></strong>=<em><code>True</code></em>, <strong><code>cmap</code></strong>=<em><code>&lt;matplotlib.colors.LinearSegmentedColormap object at 0x0000012CEAEB3B48&gt;</code></em>, <strong><code>min_px</code></strong>=<em><code>-1100</code></em>, <strong><code>max_px</code></strong>=<em><code>None</code></em>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="Dataset.show" class="doc_header"><code>Dataset.show</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/explore.py#L146" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Dataset.show</code>(<strong><code>frames</code></strong>=<em><code>1</code></em>, <strong><code>scale</code></strong>=<em><code>True</code></em>, <strong><code>cmap</code></strong>=<em><code>&lt;matplotlib.colors.LinearSegmentedColormap object at 0x0000019CD6515BC8&gt;</code></em>, <strong><code>min_px</code></strong>=<em><code>-1100</code></em>, <strong><code>max_px</code></strong>=<em><code>None</code></em>, <strong>**<code>kwargs</code></strong>)</p>
 </blockquote>
 <p>Adds functionality to view dicom images where each file may have more than 1 frame</p>
 
@@ -756,7 +756,48 @@ No Image Comments
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>fastai</code> has a handy method <code>from.dicoms</code> that can access dicom metadata and display this in a dataframe.</p>
+<h3 id="from_dicoms">from_dicoms<a class="anchor-link" href="#from_dicoms"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include image.html alt="merged" align="left" width="124" height="59" max-width="124" file="/images/git_merged.PNG" %}</p>
+<p>This update has been successfully merged with <code>fastai.medical.imaging</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>fastai</code> has a handy method <code>from_dicoms</code> that can convert dicom metadata into a dataframe.  By default <code>from_dicoms</code> returns additional stats such as minimal pixel value, maximum pixel value, mean pixel value, image standard deviation and <code>pct_in_window</code> value depending on the specified window value.  These stats are returned at the end of the dataframe.</p>
+<p>The issue with the default method is that if you have alot of dicom images, calculating the additional stats can be very time consuming and in some cases are not required (depending on what you need the dataframe for).</p>
+<p>Adding the ability to toggle on or off returning the stats metadata provides additional flexibility when using <code>from_dicoms</code>.  By default <code>px_summ</code> is set to True.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">_dcm2dict</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">dicom_windows</span><span class="o">.</span><span class="n">brain</span><span class="p">,</span> <span class="n">px_summ</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">fn</span><span class="o">.</span><span class="n">dcmread</span><span class="p">()</span><span class="o">.</span><span class="n">as_dict</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">px_summ</span><span class="o">=</span><span class="n">px_summ</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By default the stats metadata is calculated when using <code>from_dicoms</code></p>
 
 </div>
 </div>
@@ -771,7 +812,7 @@ No Image Comments
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m_items</span> <span class="o">=</span> <span class="n">get_dicom_files</span><span class="p">(</span><span class="s1">&#39;D:/Datasets/osic-pulmonary-fibrosis-progression/train/ID00007637202177411956430&#39;</span><span class="p">)</span>
 <span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;D:/Datasets/osic-pulmonary-fibrosis-progression/train/&#39;</span>
 <span class="n">dicom_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dicoms</span><span class="p">(</span><span class="n">m_items</span><span class="p">)</span>
-<span class="n">dicom_dataframe</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">dicom_dataframe</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -803,81 +844,128 @@ No Image Comments
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>SpecificCharacterSet</th>
-      <th>ImageType</th>
-      <th>SOPInstanceUID</th>
-      <th>Modality</th>
-      <th>Manufacturer</th>
-      <th>ManufacturerModelName</th>
-      <th>PatientName</th>
-      <th>PatientID</th>
-      <th>PatientSex</th>
-      <th>DeidentificationMethod</th>
-      <th>...</th>
-      <th>ImageOrientationPatient3</th>
-      <th>ImageOrientationPatient4</th>
-      <th>ImageOrientationPatient5</th>
-      <th>MultiPixelSpacing</th>
-      <th>PixelSpacing1</th>
-      <th>img_min</th>
-      <th>img_max</th>
-      <th>img_mean</th>
-      <th>img_std</th>
-      <th>img_pct_window</th>
+      <th>0</th>
+      <th>1</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>ISO_IR 100</td>
-      <td>ORIGINAL</td>
-      <td>2.25.12297650151329871895440507938349160734</td>
-      <td>CT</td>
-      <td>GE MEDICAL SYSTEMS</td>
-      <td>LightSpeed VCT</td>
-      <td>(I, D, 0, 0, 0, 0, 7, 6, 3, 7, 2, 0, 2, 1, 7, 7, 4, 1, 1, 9, 5, 6, 4, 3, 0)</td>
-      <td>ID00007637202177411956430</td>
-      <td></td>
-      <td>Table;</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>0.652344</td>
+      <th>img_min</th>
       <td>-2000</td>
-      <td>2842</td>
-      <td>-1.454884</td>
-      <td>1137.488858</td>
-      <td>0.058094</td>
+      <td>-2000</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>ISO_IR 100</td>
-      <td>ORIGINAL</td>
-      <td>2.25.37611372879908126511187998276199853341</td>
-      <td>CT</td>
-      <td>GE MEDICAL SYSTEMS</td>
-      <td>LightSpeed VCT</td>
-      <td>(I, D, 0, 0, 0, 0, 7, 6, 3, 7, 2, 0, 2, 1, 7, 7, 4, 1, 1, 9, 5, 6, 4, 3, 0)</td>
-      <td>ID00007637202177411956430</td>
-      <td></td>
-      <td>Table;</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>0.652344</td>
-      <td>-2000</td>
+      <th>img_max</th>
+      <td>2842</td>
       <td>2918</td>
-      <td>19.038597</td>
-      <td>1138.876560</td>
-      <td>0.068130</td>
+    </tr>
+    <tr>
+      <th>img_mean</th>
+      <td>-1.45488</td>
+      <td>19.0386</td>
+    </tr>
+    <tr>
+      <th>img_std</th>
+      <td>1137.49</td>
+      <td>1138.88</td>
+    </tr>
+    <tr>
+      <th>img_pct_window</th>
+      <td>0.058094</td>
+      <td>0.0681305</td>
     </tr>
   </tbody>
 </table>
-<p>2 rows × 67 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However if you want to prevent the stats being calculated you can pass <code>px_summ</code> to False (as seen below the stats summary is not calculated).</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dicom_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dicoms</span><span class="p">(</span><span class="n">m_items</span><span class="p">,</span> <span class="n">px_summ</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">dicom_dataframe</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ImageOrientationPatient3</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>ImageOrientationPatient4</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>ImageOrientationPatient5</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>MultiPixelSpacing</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>PixelSpacing1</th>
+      <td>0.652344</td>
+      <td>0.652344</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
 
@@ -928,6 +1016,23 @@ No Image Comments
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dicom_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dicoms</span><span class="p">(</span><span class="n">m_items</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
