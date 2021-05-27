@@ -24,8 +24,9 @@ def visualize_layers(fn, learn, nrows=5, ncols=5):
     show_images(img_list, titles=size_list, nrows=nrows, ncols=ncols);
 
 # Cell
-def view_layers(image, layer:int, layers):
+def view_layers(self, image, layer:int, layers, **kwargs):
     lsl = []
+    self.layers = layers
     custom_hook = hook_outputs(layers)
     pre = learn.predict(image)
     _,s,w,h = custom_hook.stored[layer].shape
