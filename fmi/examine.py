@@ -54,7 +54,7 @@ class HookBwd():
     def __exit__(self, *args): self.hook.remove()
 
 # Cell
-def view_activations(x, dls, learn, layer):
+def view_activations(x, cls, dls, learn, layer):
     "View activations by layer by image"
     print(layer)
     with HookBwd(layer) as hookg:
