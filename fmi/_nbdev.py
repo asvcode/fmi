@@ -25,6 +25,8 @@ index = {"system_info": "02_explore.ipynb",
          "CustomPILDicom": "04_pipeline.ipynb",
          "visualize_layers": "06_examine.ipynb",
          "view_layers": "06_examine.ipynb",
+         "Hook": "06_examine.ipynb",
+         "HookBwd": "06_examine.ipynb",
          "view_activations": "06_examine.ipynb"}
 
 modules = ["explore.py",
