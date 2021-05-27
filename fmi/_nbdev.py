@@ -24,7 +24,8 @@ index = {"system_info": "02_explore.ipynb",
          "dicom_windows": "04_pipeline.ipynb",
          "CustomPILDicom": "04_pipeline.ipynb",
          "visualize_layers": "06_examine.ipynb",
-         "view_layers": "06_examine.ipynb"}
+         "view_layers": "06_examine.ipynb",
+         "view_activations": "06_examine.ipynb"}
 
 modules = ["explore.py",
            "preprocessing.py",
