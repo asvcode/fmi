@@ -9,7 +9,7 @@ index = {"system_info": "02_explore.ipynb",
          "instance_sort": "02_explore.ipynb",
          "instance_dcmread": "02_explore.ipynb",
          "instance_show": "02_explore.ipynb",
-         "scaled_px": "02_explore.ipynb",
+         "scaled_px": "04_pipeline.ipynb",
          "DcmDataset.show": "02_explore.ipynb",
          "get_dicom_image": "02_explore.ipynb",
          "dicom_convert_3channel": "02_explore.ipynb",
@@ -23,7 +23,8 @@ index = {"system_info": "02_explore.ipynb",
          "dicom_splitter": "03_preprocessing.ipynb",
          "dicom_windows": "04_pipeline.ipynb",
          "CustomPILDicom": "04_pipeline.ipynb",
-         "visualize_layers": "06_examine.ipynb"}
+         "visualize_layers": "06_examine.ipynb",
+         "view_layers": "06_examine.ipynb"}
 
 modules = ["explore.py",
            "preprocessing.py",
