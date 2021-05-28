@@ -19,7 +19,7 @@ To learn more about medical imaging using `Fastai` you can view my [blog](https:
 
 [Dicom Splitter Examples](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/dicom_splitter_examples.ipynb)
 
-[Starter Medical Imaging Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/medical_imaging_tutorial.ipynb)
+[Medical Imaging Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/medical_imaging_tutorial.ipynb)
 
 [Signal Processing Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/Signal_Processing_Tutorial.ipynb)
 
