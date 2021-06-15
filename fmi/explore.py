@@ -28,13 +28,15 @@ def system_info():
     import torch; print(BOLD + BLUE + "torch version: " + RESET + ITALIC + str(torch.__version__))
     print(BOLD + BLUE + "\nCuda: " + RESET + ITALIC + str(torch.cuda.is_available()))
     try:
-        print(BOLD + BLUE + "cuda Version: " + RESET + ITALIC + str(torch.version.cuda))
+        print(BOLD + BLUE + "Cuda Version: " + RESET + ITALIC + str(torch.version.cuda))
     except AssertionError:
-        print
+        print(BOLD + BLUE + "Cuda Version Unavailable")
     try:
         print(BOLD + BLUE + "GPU: " + RESET + ITALIC + str(torch.cuda.get_device_name(0)))
     except RuntimeError:
-        print(BOLD + BLUE + "No GPU selected" )
+        print(BOLD + BLUE + "No GPU selected")
+    except AssertionError:
+        print(BOLD + BLUE +  "Torch not compiled with CUDA enabled")
     try:
         import pydicom; print(BOLD + BLUE + "\npydicom Version: " + RESET + ITALIC + str(pydicom.__version__))
     except RuntimeError:
