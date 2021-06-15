@@ -27,7 +27,10 @@ def system_info():
     import torchvision; print(BOLD + BLUE + "torchvision: " + RESET + ITALIC + str(torchvision.__version__))
     import torch; print(BOLD + BLUE + "torch version: " + RESET + ITALIC + str(torch.__version__))
     print(BOLD + BLUE + "\nCuda: " + RESET + ITALIC + str(torch.cuda.is_available()))
-    print(BOLD + BLUE + "cuda Version: " + RESET + ITALIC + str(torch.version.cuda))
+    try:
+        print(BOLD + BLUE + "cuda Version: " + RESET + ITALIC + str(torch.version.cuda))
+    except AssertionError:
+        print
     try:
         print(BOLD + BLUE + "GPU: " + RESET + ITALIC + str(torch.cuda.get_device_name(0)))
     except RuntimeError:
