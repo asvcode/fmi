@@ -111,6 +111,14 @@ def get_pii(file: (L)):
         print(f'{dcm[0x20, 0x4000]}')
     except KeyError:
         print('No Image Comments')
+    try:
+        print(f'{dcm[0x12, 0x63]}')
+    except KeyError:
+        print('No De-Identification method')
+    try:
+        print(f'{dcm[0x12, 0x64]}')
+    except KeyError:
+        print('No De-identification Method Code Sequence')
 
 # Cell
 def instance_sort(folder:(Path, L)):
