@@ -53,7 +53,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="conv2d" class="doc_header"><code>conv2d</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>conv2d</code>(<strong><code>ni</code></strong>:<code>int</code>, <strong><code>nf</code></strong>:<code>int</code>, <strong><code>ks</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>stride</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>padding</code></strong>:<code>int</code>=<em><code>None</code></em>, <strong><code>bias</code></strong>=<em><code>False</code></em>, <strong><code>init</code></strong>=<em><code>kaiming_normal_</code></em>)</p>
+<h4 id="conv2d" class="doc_header"><code>conv2d</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>conv2d</code>(<strong><code>ni</code></strong>:<code>int</code>, <strong><code>nf</code></strong>:<code>int</code>, <strong><code>ks</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>stride</code></strong>:<code>int</code>=<em><code>1</code></em>, <strong><code>padding</code></strong>:<code>int</code>=<em><code>None</code></em>, <strong><code>bias</code></strong>=<em><code>False</code></em>, <strong><code>init</code></strong>=<em><code>kaiming_normal_</code></em>)</p>
 </blockquote>
 <p>Create and initialize <code>nn.Conv2d</code> layer.</p>
 
@@ -85,7 +85,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="LateralUpsampleMerge" class="doc_header"><code>class</code> <code>LateralUpsampleMerge</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L22" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>LateralUpsampleMerge</code>(<strong><code>ch</code></strong>, <strong><code>ch_lat</code></strong>, <strong><code>hook</code></strong>) :: <code>Module</code></p>
+<h2 id="LateralUpsampleMerge" class="doc_header"><code>class</code> <code>LateralUpsampleMerge</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L22" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>LateralUpsampleMerge</code>(<strong><code>ch</code></strong>, <strong><code>ch_lat</code></strong>, <strong><code>hook</code></strong>) :: <code>Module</code></p>
 </blockquote>
 <p>Merge the features coming from the downsample path (in <code>hook</code>) with the upsample path.</p>
 
@@ -117,7 +117,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RetinaNet" class="doc_header"><code>class</code> <code>RetinaNet</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L33" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RetinaNet</code>(<strong><code>encoder</code></strong>:<code>Module</code>, <strong><code>n_classes</code></strong>, <strong><code>final_bias</code></strong>=<em><code>0.0</code></em>, <strong><code>chs</code></strong>=<em><code>256</code></em>, <strong><code>n_anchors</code></strong>=<em><code>9</code></em>, <strong><code>flatten</code></strong>=<em><code>True</code></em>) :: <code>Module</code></p>
+<h2 id="RetinaNet" class="doc_header"><code>class</code> <code>RetinaNet</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L33" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RetinaNet</code>(<strong><code>encoder</code></strong>:<code>Module</code>, <strong><code>n_classes</code></strong>, <strong><code>final_bias</code></strong>=<em><code>0.0</code></em>, <strong><code>chs</code></strong>=<em><code>256</code></em>, <strong><code>n_anchors</code></strong>=<em><code>9</code></em>, <strong><code>flatten</code></strong>=<em><code>True</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Implements RetinaNet from <a href="https://arxiv.org/abs/1708.02002">https://arxiv.org/abs/1708.02002</a></p>
 
@@ -155,7 +155,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="activ_to_bbox" class="doc_header"><code>activ_to_bbox</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>activ_to_bbox</code>(<strong><code>acts</code></strong>, <strong><code>anchors</code></strong>, <strong><code>flatten</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="activ_to_bbox" class="doc_header"><code>activ_to_bbox</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>activ_to_bbox</code>(<strong><code>acts</code></strong>, <strong><code>anchors</code></strong>, <strong><code>flatten</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Extrapolate bounding boxes on anchors from the model activations.</p>
 
@@ -187,7 +187,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="bbox_to_activ" class="doc_header"><code>bbox_to_activ</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L96" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bbox_to_activ</code>(<strong><code>bboxes</code></strong>, <strong><code>anchors</code></strong>, <strong><code>flatten</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="bbox_to_activ" class="doc_header"><code>bbox_to_activ</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L96" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>bbox_to_activ</code>(<strong><code>bboxes</code></strong>, <strong><code>anchors</code></strong>, <strong><code>flatten</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Return the target of the model on <code>anchors</code> for the <code>bboxes</code>.</p>
 
@@ -219,7 +219,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="encode_class" class="doc_header"><code>encode_class</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L106" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>encode_class</code>(<strong><code>idxs</code></strong>, <strong><code>n_classes</code></strong>)</p>
+<h4 id="encode_class" class="doc_header"><code>encode_class</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L106" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>encode_class</code>(<strong><code>idxs</code></strong>, <strong><code>n_classes</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -250,7 +250,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="create_anchors" class="doc_header"><code>create_anchors</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L114" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_anchors</code>(<strong><code>sizes</code></strong>, <strong><code>ratios</code></strong>, <strong><code>scales</code></strong>, <strong><code>flatten</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="create_anchors" class="doc_header"><code>create_anchors</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L114" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_anchors</code>(<strong><code>sizes</code></strong>, <strong><code>ratios</code></strong>, <strong><code>scales</code></strong>, <strong><code>flatten</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Create anchor of <code>sizes</code>, <code>ratios</code> and <code>scales</code>.</p>
 
@@ -282,7 +282,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="create_grid" class="doc_header"><code>create_grid</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L129" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_grid</code>(<strong><code>size</code></strong>)</p>
+<h4 id="create_grid" class="doc_header"><code>create_grid</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L129" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>create_grid</code>(<strong><code>size</code></strong>)</p>
 </blockquote>
 <p>Create a grid of a given <code>size</code>.</p>
 
@@ -314,7 +314,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="cthw2tlbr" class="doc_header"><code>cthw2tlbr</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L140" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>cthw2tlbr</code>(<strong><code>boxes</code></strong>)</p>
+<h4 id="cthw2tlbr" class="doc_header"><code>cthw2tlbr</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L140" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>cthw2tlbr</code>(<strong><code>boxes</code></strong>)</p>
 </blockquote>
 <p>Convert center/size format <code>boxes</code> to top/left bottom/right corners.</p>
 
@@ -346,7 +346,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="tlbr2cthw" class="doc_header"><code>tlbr2cthw</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L147" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tlbr2cthw</code>(<strong><code>boxes</code></strong>)</p>
+<h4 id="tlbr2cthw" class="doc_header"><code>tlbr2cthw</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L147" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>tlbr2cthw</code>(<strong><code>boxes</code></strong>)</p>
 </blockquote>
 <p>Convert top/left bottom/right format <code>boxes</code> to center/size corners.</p>
 
@@ -378,7 +378,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="match_anchors" class="doc_header"><code>match_anchors</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L154" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>match_anchors</code>(<strong><code>anchors</code></strong>, <strong><code>targets</code></strong>, <strong><code>match_thr</code></strong>=<em><code>0.5</code></em>, <strong><code>bkg_thr</code></strong>=<em><code>0.4</code></em>)</p>
+<h4 id="match_anchors" class="doc_header"><code>match_anchors</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L154" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>match_anchors</code>(<strong><code>anchors</code></strong>, <strong><code>targets</code></strong>, <strong><code>match_thr</code></strong>=<em><code>0.5</code></em>, <strong><code>bkg_thr</code></strong>=<em><code>0.4</code></em>)</p>
 </blockquote>
 <p>Match <code>anchors</code> to targets. -1 is match to background, -2 is ignore.</p>
 
@@ -410,7 +410,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="intersection" class="doc_header"><code>intersection</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L165" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>intersection</code>(<strong><code>anchors</code></strong>, <strong><code>targets</code></strong>)</p>
+<h4 id="intersection" class="doc_header"><code>intersection</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L165" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>intersection</code>(<strong><code>anchors</code></strong>, <strong><code>targets</code></strong>)</p>
 </blockquote>
 <p>Compute the sizes of the intersections of <code>anchors</code> by <code>targets</code>.</p>
 
@@ -442,7 +442,7 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="IoU_values" class="doc_header"><code>IoU_values</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L176" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>IoU_values</code>(<strong><code>anchs</code></strong>, <strong><code>targs</code></strong>)</p>
+<h4 id="IoU_values" class="doc_header"><code>IoU_values</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L176" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>IoU_values</code>(<strong><code>anchs</code></strong>, <strong><code>targs</code></strong>)</p>
 </blockquote>
 <p>Compute the IoU values of <code>anchors</code> by <code>targets</code>.</p>
 
@@ -474,7 +474,62 @@ nb_path: "nbs\20_retinanet.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="RetinaNetFocalLoss" class="doc_header"><code>class</code> <code>RetinaNetFocalLoss</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/train.py#L184" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RetinaNetFocalLoss</code>(<strong><code>gamma</code></strong>:<code>float</code>=<em><code>2.0</code></em>, <strong><code>alpha</code></strong>:<code>float</code>=<em><code>0.25</code></em>, <strong><code>pad_idx</code></strong>:<code>int</code>=<em><code>0</code></em>, <strong><code>scales</code></strong>=<em><code>None</code></em>, <strong><code>ratios</code></strong>=<em><code>None</code></em>, <strong><code>reg_loss</code></strong>=<em><code>smooth_l1_loss</code></em>) :: <code>Module</code></p>
+<h2 id="SigmaL1SmoothLoss" class="doc_header"><code>class</code> <code>SigmaL1SmoothLoss</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L184" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SigmaL1SmoothLoss</code>() :: <code>Module</code></p>
+</blockquote>
+<p>Base class for all neural network modules.</p>
+<p>Your models should also subclass this class.</p>
+<p>Modules can also contain other Modules, allowing to nest them in
+a tree structure. You can assign the submodules as regular attributes::</p>
+
+<pre><code>import torch.nn as nn
+import torch.nn.functional as F
+
+class Model(nn.Module):
+    def __init__(self):
+        super(Model, self).__init__()
+        self.conv1 = nn.Conv2d(1, 20, 5)
+        self.conv2 = nn.Conv2d(20, 20, 5)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        return F.relu(self.conv2(x))
+
+</code></pre>
+<p>Submodules assigned in this way will be registered, and will have their
+parameters converted too when you call :meth:<code>to</code>, etc.</p>
+<p>:ivar training: Boolean represents whether this module is in training or
+                evaluation mode.
+:vartype training: bool</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="RetinaNetFocalLoss" class="doc_header"><code>class</code> <code>RetinaNetFocalLoss</code><a href="https://github.com/asvcode/fmi/tree/master/fmi/retinanet.py#L191" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>RetinaNetFocalLoss</code>(<strong><code>gamma</code></strong>:<code>float</code>=<em><code>2.0</code></em>, <strong><code>alpha</code></strong>:<code>float</code>=<em><code>0.25</code></em>, <strong><code>pad_idx</code></strong>:<code>int</code>=<em><code>0</code></em>, <strong><code>scales</code></strong>=<em><code>None</code></em>, <strong><code>ratios</code></strong>=<em><code>None</code></em>, <strong><code>reg_loss</code></strong>=<em><code>smooth_l1_loss</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>

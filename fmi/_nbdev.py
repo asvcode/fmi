@@ -41,13 +41,14 @@ index = {"system_info": "02_explore.ipynb",
          "match_anchors": "20_retinanet.ipynb",
          "intersection": "20_retinanet.ipynb",
          "IoU_values": "20_retinanet.ipynb",
+         "SigmaL1SmoothLoss": "20_retinanet.ipynb",
          "RetinaNetFocalLoss": "20_retinanet.ipynb"}
 
 modules = ["explore.py",
            "preprocessing.py",
            "pipeline.py",
            "examine.py",
-           "train.py"]
+           "retinanet.py"]
 
 doc_url = "https://asvcode.github.io/fmi/"
 
