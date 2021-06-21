@@ -11,6 +11,7 @@ import torch.nn.functional as F
 from fastai.vision.models.unet import _get_sz_change_idxs, hook_outputs
 from fastai.layers import init_default, ConvLayer
 from fastai.callback.hook import model_sizes
+from fastai.basics import ifnone
 
 # Cell
 def conv2d(ni:int, nf:int, ks:int=3, stride:int=1, padding:int=None, bias=False, init=nn.init.kaiming_normal_):
