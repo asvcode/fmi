@@ -27,12 +27,27 @@ index = {"system_info": "02_explore.ipynb",
          "view_layers": "06_examine.ipynb",
          "Hook": "06_examine.ipynb",
          "HookBwd": "06_examine.ipynb",
-         "view_activations": "06_examine.ipynb"}
+         "view_activations": "06_examine.ipynb",
+         "conv2d": "20_retinanet.ipynb",
+         "LateralUpsampleMerge": "20_retinanet.ipynb",
+         "RetinaNet": "20_retinanet.ipynb",
+         "activ_to_bbox": "20_retinanet.ipynb",
+         "bbox_to_activ": "20_retinanet.ipynb",
+         "encode_class": "20_retinanet.ipynb",
+         "create_anchors": "20_retinanet.ipynb",
+         "create_grid": "20_retinanet.ipynb",
+         "cthw2tlbr": "20_retinanet.ipynb",
+         "tlbr2cthw": "20_retinanet.ipynb",
+         "match_anchors": "20_retinanet.ipynb",
+         "intersection": "20_retinanet.ipynb",
+         "IoU_values": "20_retinanet.ipynb",
+         "RetinaNetFocalLoss": "20_retinanet.ipynb"}
 
 modules = ["explore.py",
            "preprocessing.py",
            "pipeline.py",
-           "examine.py"]
+           "examine.py",
+           "train.py"]
 
 doc_url = "https://asvcode.github.io/fmi/"
 
