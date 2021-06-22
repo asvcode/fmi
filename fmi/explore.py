@@ -83,6 +83,10 @@ def get_image_info(file: (L)):
     except KeyError:
         print('No Bits Stored')
     try:
+        print(f'{dcm[0x28, 0x103]}')
+    except KeyError:
+        print('No Pixel Representation')
+    try:
         print(f'{dcm[0x28, 0x120]}')
     except KeyError:
         print('No Pixel Padding Value')
