@@ -7,7 +7,7 @@ __all__ = ['conv2d', 'LateralUpsampleMerge', 'RetinaNet', 'activ_to_bbox', 'bbox
 # Cell
 import math
 import torch
-from torch import nn
+from torch import nn, LongTensor, FloatTensor
 import torch.nn.functional as F
 from fastai.vision.models.unet import _get_sz_change_idxs, hook_outputs
 from fastai.layers import init_default, ConvLayer
