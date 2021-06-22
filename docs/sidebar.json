@@ -7,7 +7,7 @@
     "train": "train.html",
     "examine": "examine.html",
     "wearable": "wearable.html",
-    "RetinaNet": "retinanet.html",
+    "retinanet": "retinanet.html",
     "tutorials": "tutorial.html"
   }
 }

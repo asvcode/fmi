@@ -28,7 +28,7 @@ entries:
       title: wearable
       url: wearable.html
     - output: web,pdf
-      title: RetinaNet
+      title: retinanet
       url: retinanet.html
     - output: web,pdf
       title: tutorials
