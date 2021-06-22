@@ -5,6 +5,7 @@ __all__ = ['conv2d', 'LateralUpsampleMerge', 'RetinaNet', 'activ_to_bbox', 'bbox
            'SigmaL1SmoothLoss', 'RetinaNetFocalLoss']
 
 # Cell
+import math
 import torch
 from torch import nn
 import torch.nn.functional as F
