@@ -79,6 +79,14 @@ def get_image_info(file: (L)):
     except KeyError:
         print('No Bits Allocated')
     try:
+        print(f'{dcm[0x28, 0x101]}')
+    except KeyError:
+        print('No Bits Stored')
+    try:
+        print(f'{dcm[0x28, 0x120]}')
+    except Keyerror:
+        print('No Pixel Padding Value')
+    try:
         print(f'{dcm[0x28, 0x1052]}')
     except KeyError:
         print('No Rescale Intercept')
