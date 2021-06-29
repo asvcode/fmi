@@ -216,7 +216,8 @@ class RetinaNetFocalLoss(nn.Module):
         ps = torch.sigmoid(clas_pred.detach())
         weights = encoded_tgt * (1-ps) + (1-encoded_tgt) * ps
         alphas = (1-encoded_tgt) * self.alpha + encoded_tgt * (1-self.alpha)
-        weights.pow_(self.gamma).mul_(alphas)
+        print(weights)
+        #weights.pow_(self.gamma).mul_(alphas)
         clas_loss = F.binary_cross_entropy_with_logits(clas_pred, encoded_tgt, weights, reduction='sum')
         return clas_loss
 
