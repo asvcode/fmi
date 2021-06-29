@@ -76,9 +76,10 @@ class RetinaNet(nn.Module):
         for merge in self.merges: p_states = [merge(p_states[0])] + p_states
         for i, smooth in enumerate(self.smoothers[:3]):
             p_states[i] = smooth(p_states[i])
-        return [self._apply_transpose(self.classifier, p_states, self.n_classes),
-                self._apply_transpose(self.box_regressor, p_states, 4),
-                [[p.size(2), p.size(3)] for p in p_states]]
+
+        self.sizes = [[p.size(2), p.size(3)] for p in p_states]
+        return [self._apply_transpose(self.box_regressor, p_states, 4),
+            self._apply_transpose(self.classifier, p_states, self.n_classes)]
 
     def __del__(self):
         if hasattr(self, "sfs"): self.sfs.remove()
@@ -191,11 +192,14 @@ class SigmaL1SmoothLoss(nn.Module):
 
 # Cell
 class RetinaNetFocalLoss(nn.Module):
-    def __init__(self, gamma:float=2., alpha:float=0.25,  pad_idx:int=0, scales=None, ratios=None, reg_loss=F.smooth_l1_loss):
+    def __init__(self, model, gamma:float=2., alpha:float=0.25,  pad_idx:int=0, scales=None, ratios=None, reg_loss=F.smooth_l1_loss):
         super().__init__()
+        self.model = model
         self.gamma,self.alpha,self.pad_idx,self.reg_loss = gamma,alpha,pad_idx,reg_loss
         self.scales = ifnone(scales, [1,2**(-1/3), 2**(-2/3)])
         self.ratios = ifnone(ratios, [1/2,1,2])
+
+    def decodes(self, x):    return (x[0], x[1].argmax(dim=-1))
 
     def _change_anchors(self, sizes) -> bool:
         if not hasattr(self, 'sizes'): return True
@@ -216,8 +220,7 @@ class RetinaNetFocalLoss(nn.Module):
         ps = torch.sigmoid(clas_pred.detach())
         weights = encoded_tgt * (1-ps) + (1-encoded_tgt) * ps
         alphas = (1-encoded_tgt) * self.alpha + encoded_tgt * (1-self.alpha)
-        print(weights)
-        #weights.pow_(self.gamma).mul_(alphas)
+        weights.pow_(self.gamma).mul_(alphas)
         clas_loss = F.binary_cross_entropy_with_logits(clas_pred, encoded_tgt, weights, reduction='sum')
         return clas_loss
 
@@ -239,7 +242,8 @@ class RetinaNetFocalLoss(nn.Module):
         return bb_loss + self._focal_loss(clas_pred, clas_tgt)/torch.clamp(bbox_mask.sum(), min=1.)
 
     def forward(self, output, bbox_tgts, clas_tgts):
-        clas_preds, bbox_preds, sizes = output
+        bbox_preds, clas_preds = output
+        sizes = self.model.sizes
         if self._change_anchors(sizes): self._create_anchors(sizes, clas_preds.device)
         n_classes = clas_preds.size(2)
         return sum([self._one_loss(cp, bp, ct, bt)
