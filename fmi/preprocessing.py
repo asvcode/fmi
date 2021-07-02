@@ -83,7 +83,7 @@ def image_hist(file: (L), window=dicom_windows.lungs, sigma:float=0.1, thresh:fl
 def _dcm2dict(fn, window=dicom_windows.brain, **kwargs): return fn.dcmread().as_dict(window=window, **kwargs)
 
 # Cell
-def move_files_df(df, column_name, file_name=None, save_path=save_path):
+def move_files_df(df, column_name, file_name=None):
     "Helper to move files using a column value in a dataframe"
     try:
         for i in df.index:
