@@ -915,8 +915,14 @@ class Evaluator:
         interArea = Evaluator._getIntersectionArea(boxA, boxB)
         union = Evaluator._getUnionAreas(boxA, boxB, interArea=interArea)
         # intersection over union
+        print(interArea)
+        print(union)
+        if interArea == 0:
+            interArea == 0.1
+        if union == 0:
+            union == 0.1
         iou = interArea / union
-        assert iou >= 0
+        #assert iou >= 0
         return iou
 
     # boxA = (Ax1,Ay1,Ax2,Ay2)
