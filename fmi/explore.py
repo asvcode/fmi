@@ -169,6 +169,14 @@ def scaled_px(self:DcmDataset):
 
 # Cell
 @patch
+def pct_in_window(dcm:(DcmDataset, Tensor), w, l):
+    "% of pixels in the window `(w,l)`"
+    if isinstance(dcm, DcmDataset): px = dcm.scaled_px
+    if isinstance(dcm, Tensor): px = dcm
+    return ((px > l-w//2) & (px < l+w//2)).float().mean().item()
+
+# Cell
+@patch
 def show(self:DcmDataset, frames=1, scale=True, cmap=plt.cm.bone, min_px=-1100, max_px=None, **kwargs):
     "Adds functionality to view dicom images where each file may have more than 1 frame"
     px = (self.windowed(*scale) if isinstance(scale,tuple)
