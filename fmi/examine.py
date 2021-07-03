@@ -71,5 +71,5 @@ def view_activations(x, cls, dls, learn, layer):
 
     _,ax = plt.subplots()
     x_dec.show(ctx=ax)
-    ax.imshow(cam_map.detach().cpu(), alpha=0.6, extent=(0,224,224,0),
+    ax.imshow(cam_map.detach().cpu(), alpha=0.6, extent=(0,x_dec.shape[1],x_dec.shape[2],0),
               interpolation='bilinear', cmap='magma');
