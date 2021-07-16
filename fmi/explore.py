@@ -191,17 +191,17 @@ def show(self:DcmDataset, frames=1, scale=True, cmap=plt.cm.bone, min_px=-1100, 
     else: show_image(px, cmap=cmap, **kwargs)
 
 # Cell
-def get_dicom_image(df, key, nrows=1, source=None, folder_val=None, instance_val=None):
+def get_dicom_image(df, key, nrows=1, source=None, figsize=(7,7)):
     "Helper to view images by key"
     imgs=[]
     title=[]
     for i in df.index:
-        file_path = Path(f"{source}/{df.iloc[i][folder_val]}/{df.iloc[i][instance_val]}.dcm")
+        file_path = Path(f"{df.iloc[i]['fname']}")
         dcc = file_path.dcmread().pixel_array
         imgs.append(dcc)
         pct = df.iloc[i][key]
         title.append(pct)
-    return show_images(imgs, titles=title, nrows=nrows)
+    return show_images(imgs, titles=title, nrows=nrows, figsize=figsize)
 
 # Cell
 def dicom_convert_3channel(fn:(Path,str), save_dir, show=False, save=False, win1=dicom_windows.lungs, \
@@ -223,7 +223,7 @@ def dicom_convert_3channel(fn:(Path,str), save_dir, show=False, save=False, win1
     else: pass
 
 # Cell
-def show_aspects(fol: (L, str), show=False, save=False, save_path=None, atype=np.float32):
+def show_aspects(fol: (L, str), show=False, save=False, save_path=None, figsize=(7,7), atype=np.float32):
     "View axial, sagittal and coronal planes"
     if isinstance(fol, str): fol = get_dicom_files(fol)
     if isinstance(fol, L): fol = fol
@@ -243,7 +243,7 @@ def show_aspects(fol: (L, str), show=False, save=False, save_path=None, atype=np
         sagittal = img3d[:, img_shape[1]//2, :].astype(atype)
         coronal = img3d[img_shape[0]//2, :, :].T.astype(atype)
         print(f'Number of slices: {len(fol)}')
-        if show is not False: show_images([axial, sagittal, coronal], titles=('axial', 'sagittal', 'coronal'))
+        if show is not False: show_images([axial, sagittal, coronal], titles=('axial', 'sagittal', 'coronal'), figsize=figsize)
         if save is not False:
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
