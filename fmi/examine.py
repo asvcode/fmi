@@ -56,7 +56,6 @@ class HookBwd():
 # Cell
 def view_activations(x, cls, dls, learn, layer):
     "View activations by layer by image"
-    print(layer)
     with HookBwd(layer) as hookg:
         with Hook(layer) as hook:
             output = learn.model.eval()(x.cuda())
