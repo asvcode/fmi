@@ -5,6 +5,7 @@ __all__ = ['visualize_layers', 'view_layers', 'Hook', 'HookBwd', 'view_activatio
 # Cell
 from fastai.layers import flatten_model
 from fastai.vision.all import *
+import pydicom
 
 # Cell
 def visualize_layers(fn, learn, nrows=5, ncols=5):
