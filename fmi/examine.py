@@ -75,7 +75,7 @@ def view_activations(x, cls, dls, learn, layer):
               interpolation='bilinear', cmap='magma');
 
 # Cell
-def get_cmaps(fn, dls, learn, sanity = False, show_maps=False, show_cmap=False):
+def get_cmaps(fn, dls, learn, layer, sanity = False, show_maps=False, show_cmap=False):
     "view cmaps for all classes in an image"
     cf = []; ci = []
     try:
@@ -87,8 +87,8 @@ def get_cmaps(fn, dls, learn, sanity = False, show_maps=False, show_cmap=False):
         if sanity is not False:
             print(f'{cl}\n{oo[-1]}\n{oo[0]}')
         for i in range(c):
-            with HookBwd(learn.model[0][-1]) as hookg:
-                with Hook(learn.model[0][-1]) as hook:
+            with HookBwd(layer) as hookg:
+                with Hook(layer) as hook:
                     output = learn.model.eval()(x.cuda())
                     act = hook.stored
                 output[0, oo[-1][i]].backward()
@@ -111,7 +111,7 @@ def get_cmaps(fn, dls, learn, sanity = False, show_maps=False, show_cmap=False):
         print('error')
 
 # Cell
-def get_boxes(fn, dls, learn, sanity = False, show_maps=False, show_img=False, color='white'):
+def get_boxes(fn, dls, learn, layer, sanity = False, show_maps=False, show_img=False, color='white'):
     "Get the location of bounding boxes in each class within an image"
     cf = []; ci = []; ar = []
     try:
@@ -122,8 +122,8 @@ def get_boxes(fn, dls, learn, sanity = False, show_maps=False, show_img=False, c
         cl, pred, probs = learn.predict(fn)
         oo = L(torch.topk(probs, c))
         for i in range(c):
-            with HookBwd(learn.model[0][-1]) as hookg:
-                with Hook(learn.model[0][-1]) as hook:
+            with HookBwd(layer) as hookg:
+                with Hook(layer) as hook:
                     output = learn.model.eval()(x.cuda())
                     act = hook.stored
                 output[0, oo[-1][i]].backward()
