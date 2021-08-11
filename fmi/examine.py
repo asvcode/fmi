@@ -25,7 +25,7 @@ def visualize_layers(fn, learn, nrows=5, ncols=5):
     show_images(img_list, titles=size_list, nrows=nrows, ncols=ncols);
 
 # Cell
-def view_layers(image, layer:int, layers, learn):
+def view_layers(image, layer:int, layers, learn, nrows=1, imgs=1, stats=False):
     lsl = []
     custom_hook = hook_outputs(layers)
     pre = learn.predict(image)
@@ -33,10 +33,11 @@ def view_layers(image, layer:int, layers, learn):
     for i in range(s):
         acts = custom_hook.stored[layer][0][i]
         lsl.append(acts)
-    print(f'Layer: {layers[layer]}')
-    print(f'Number of activations: {s}')
-    print(f'Image shape: {w, h}')
-    show_images(lsl, nrows=1)
+    if stats is not False:
+        print(f'Layer: {layers[layer]}')
+        print(f'Number of activations: {s}')
+        print(f'Image shape: {w, h}')
+    show_images(lsl[:imgs], nrows=nrows)
 
 # Cell
 class Hook():
