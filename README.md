@@ -15,13 +15,15 @@ To learn more about medical imaging using `Fastai` you can view my [blog](https:
 
 ## Tutorials
 
+[Medical Imaging Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/medical_imaging_tutorial.ipynb) **Updated**
+
+[Bounding Box Generation](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/bounding_box_generation.ipynb)
+
 [Explore & Preprocessing Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/explore_preprocessing_tutorial.ipynb)
 
 [Dicom Splitter Examples](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/dicom_splitter_examples.ipynb)
 
-[Medical Imaging Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/medical_imaging_tutorial.ipynb)
-
-[Signal Processing Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/Signal_Processing_Tutorial.ipynb)
+[Signal Processing Tutorial](https://github.com/asvcode/fmi/blob/master/tutorial_nbs/Signal_Processing_Tutorial.ipynb) **Not Complete**
 
 ## Successfully merged updates with fastai.medical.imaging
 
