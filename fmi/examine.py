@@ -76,7 +76,7 @@ def view_activations(x, cls, dls, learn, layer):
               interpolation='bilinear', cmap='magma');
 
 # Cell
-def get_cmaps(fn, dls, learn, layer, sanity = False, show_maps=False, show_cmap=False):
+def get_cmaps(fn, dls, learn, layer, sanity=False, show_maps=False, show_cmap=False):
     "view cmaps for all classes in an image"
     cf = []; ci = []
     try:
@@ -112,7 +112,7 @@ def get_cmaps(fn, dls, learn, layer, sanity = False, show_maps=False, show_cmap=
         print('error')
 
 # Cell
-def get_boxes(fn, dls, learn, layer, sanity = False, show_maps=False, show_img=False, color='white'):
+def get_boxes(fn, dls, learn, layer, sanity=False, show_maps=False, show_img=False, color='white'):
     "Get the location of bounding boxes in each class within an image"
     cf = []; ci = []; ar = []
     try:
