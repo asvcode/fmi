@@ -5,6 +5,7 @@ __all__ = ['visualize_layers', 'view_layers', 'Hook', 'HookBwd', 'view_activatio
 # Cell
 from fastai.layers import flatten_model
 from fastai.vision.all import *
+from .explore import draw_outline, draw_rect, TensorBBox, LabeledBBox
 import pydicom
 
 # Cell
