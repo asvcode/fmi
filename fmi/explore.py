@@ -256,6 +256,7 @@ def show_aspects(fol: (L, str), show=False, save=False, save_path=None, figsize=
 def _draw_outline(o, lw):
     o.set_path_effects([patheffects.Stroke(linewidth=lw, foreground='black'), patheffects.Normal()])
 
+# Cell
 def _draw_rect(ax, b, color='black', text=None, text_size=14, hw=True, rev=False):
     lx,ly,w,h = b
     if rev: lx,ly,w,h = ly,lx,h,w
