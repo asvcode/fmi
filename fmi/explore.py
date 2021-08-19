@@ -152,13 +152,13 @@ def instance_dcmread(folder:(L)):
     return file
 
 # Cell
-def instance_show(folder: (L), nrows=1):
+def instance_show(folder: (L), nrows=1, suptitle=None):
     "Helper to display sorted files by instance number"
     f_list = []; t_list = []
     for file in instance_sort(folder):
         f = TensorDicom(file[1].dcmread().pixel_array)
         f_list.append(f); t_list.append(file[0])
-    return show_images(f_list, titles=t_list, nrows=nrows)
+    return show_images(f_list, titles=t_list, nrows=nrows, suptitle=suptitle)
 
 # Cell
 @patch(as_prop=True)
