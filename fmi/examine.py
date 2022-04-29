@@ -99,10 +99,12 @@ def get_cmaps(fn, dls, learn, layer, sanity=False, show_maps=False, show_cmap=Fa
             cam_map = (w * act[0]).sum(0)
             cf.append(cam_map)
             ci.append([oo[-1][i].item(), format(oo[0][i].item(), '.2f')])
-
+        if c > 6:
+            row_num = round(c//6)
+        else:
+            row_num = 1
         if show_maps is not False:
-            show_images(cf, titles=ci, suptitle=cl)
-
+            show_images(cf, nrows=row_num, titles=ci, suptitle=cl)
         if show_cmap is not False:
             for file in cf:
                 _,ax = plt.subplots()
@@ -119,7 +121,6 @@ def get_boxes(fn, dls, learn, layer, sanity=False, show_maps=False, show_img=Fal
     try:
         x, = first(dls.test_dl([fn]))
         x_dec = TensorImage(dls.train.decode((x,))[0][0])
-        imz = pydicom.dcmread(fn).pixel_array
         c = len(dls.vocab)
         cl, pred, probs = learn.predict(fn)
         oo = L(torch.topk(probs, c))
@@ -135,8 +136,8 @@ def get_boxes(fn, dls, learn, layer, sanity=False, show_maps=False, show_img=Fal
             cf.append(cam_map)
             ci.append([oo[-1][i].item(), format(oo[0][i].item(), '.2f')])
             cms = cam_map.shape[0]
-            xx = imz.shape[1] // cms
-            yy = imz.shape[0] // cms
+            xx = x_dec.shape[1] // cms
+            yy = x_dec.shape[-1] //cms
             t = np.array(cam_map.cpu())
             tr = tensor(t)
             val = []
@@ -147,18 +148,17 @@ def get_boxes(fn, dls, learn, layer, sanity=False, show_maps=False, show_img=Fal
                 x_index, x_value = max(enumerate(tr[y_index]), key=operator.itemgetter(1))
                 xx1 = x_index * xx
                 yy1 = y_index * yy
-                array_ = np.array([xx1, yy1, (xx1 + (imz.shape[0]//cms)), (yy1 + (imz.shape[1]//cms))])
+                array_ = np.array([xx1, yy1, (xx1 + (x_dec.shape[2]//cms)), (yy1 + (x_dec.shape[1]//cms))])
             ar.append(array_)
         comb = L(oo[-1], oo[0], ar)
         if sanity is not False:
-            print(f'Predicted: {cl}\n{oo[-1]}\nProbs: {oo[0]}\nArray Boxes: {ar}')
+            print(f'Predicted: {cl}\n')
             for a, b, c in zip(comb[0], comb[1], comb[-1]): print(f'\n{a}\nTensor: {b}\nBox: {c}')
         if show_maps is not False:
             show_images(cf, titles=ci, suptitle=f'Predicted: {cl}')
         if show_img is not False:
-            ctx = show_image(imz)
+            ctx = show_image(x_dec)
             box = LabeledBBox(TensorBBox(comb[-1]), comb[0])
             box.show(ctx=ctx, color=color)
-        return ar
     except RuntimeError:
         print('error')
