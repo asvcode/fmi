@@ -6,8 +6,8 @@ To learn more about medical imaging using `Fastai` you can view my [blog](https:
 
 ![CI](https://github.com/asvcode/fmi/workflows/CI/badge.svg)
 
+<img src="nbs/images/graphic6t.PNG" alt="fmi" align="center" width="199" height="399" />
 
-<img src="nbs/images/graphic6t.PNG" alt="fmi" align="left" width="234" height="431" />
 
 ## Install
 
