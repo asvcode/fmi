@@ -46,13 +46,14 @@ def timm_learner(dls, arch:str, loss_func=None, pretrained=True, cut=None, split
     return learn
 
 # Cell
-class EpochIteration(TrackerCallback):
+class EpochIteration(Callback):
     "Display Epoch and Iteration"
-    def __init__(self):
-        super().__init__()
-    def after_loss(self):
+    def __init__(self, show_img=False):
+        self.show_img = show_img
+    def before_batch(self):
         if self.training is not False:
             b = f'Training: Epoch: {self.epoch} Iter: {self.iter} Loss:{self.loss}'
         else:
             b = f'Validation: Epoch: {self.epoch} Iter: {self.iter} Loss:{self.loss}'
-        show_images(self.learn.xb[0], suptitle=b)
+
+        if self.show_img is not False: show_images(self.learn.xb[0], suptitle=b)
