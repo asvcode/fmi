@@ -47,7 +47,7 @@ def timm_learner(dls, arch:str, loss_func=None, pretrained=True, cut=None, split
 
 # Cell
 class EpochIteration(Callback):
-    "Display Epoch and Iteration"
+    "Display Epoch and Iteration with option to display images"
     def __init__(self, show_img=False):
         self.show_img = show_img
     def before_batch(self):
@@ -56,4 +56,7 @@ class EpochIteration(Callback):
         else:
             b = f'Validation: Epoch: {self.epoch} Iter: {self.iter} Loss:{self.loss}'
 
-        if self.show_img is not False: show_images(self.learn.xb[0], suptitle=b)
+        if self.show_img is not False:
+            show_images(self.learn.xb[0], suptitle=b)
+        else:
+            print(b)
