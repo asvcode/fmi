@@ -26,7 +26,7 @@ class EpochIteration(Callback):
 # Cell
 class EpochImageCounter(Callback):
     "Count the number of images in each class after each training epoch"
-    def __init__(self):
+    def __init__(self, dls):
         self.r = []
         self.all_i = [i[-1].item() for i in dls.train_ds]
         self.tds = [dls.vocab[i[-1].item()] for i in dls.train_ds]
