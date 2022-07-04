@@ -36,5 +36,5 @@ class EpochImageCounter(Callback):
         if self.training is not False:
                 [self.r.append(i.item()) for i in self.yb[0]]
     def after_train(self):
-        is_in = [dls.vocab[i] for i in self.r if i in self.all_i]
+        is_in = [self.dls.vocab[i] for i in self.r if i in self.all_i]
         print(Counter(is_in))
